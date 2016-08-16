@@ -2,6 +2,27 @@
   "locked": false,
   "version": 2,
   "targets": {
+    ".NETFramework,Version=v4.5.1": {
+      "RestSharp/105.2.3": {
+        "type": "package",
+        "compile": {
+          "lib/net451/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net451/RestSharp.dll": {}
+        }
+      },
+      "MoneySharp.Contract/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "compile": {
+          "net451/MoneySharp.Contract.dll": {}
+        },
+        "runtime": {
+          "net451/MoneySharp.Contract.dll": {}
+        }
+      }
+    },
     ".NETFramework,Version=v4.6": {
       "RestSharp/105.2.3": {
         "type": "package",
@@ -72,6 +93,7 @@
       "MoneySharp.Contract >= 1.0.0-*",
       "RestSharp >= 105.2.3"
     ],
+    ".NETFramework,Version=v4.5.1": [],
     ".NETFramework,Version=v4.6": []
   },
   "tools": {},
