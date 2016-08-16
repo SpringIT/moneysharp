@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MoneySharp</id>
+    <version>$version$</version>
+    <title>MoneySharp</title>
+    <authors>Spring IT</authors>
+    <owners>Spring IT Solutions B.V.</owners>
+    <projectUrl>https://github.com/SpringIT/MoneySharp</projectUrl>
+	<licenseUrl>https://github.com/SpringIT/MoneySharp/blob/master/LICENSE.md</licenseUrl
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A C# implentation of the Moneybird API V2.</description>
+    <releaseNotes>-</releaseNotes>
+    <copyright></copyright>
+    <tags>moneybird, moneybird api, moneysharp, api</tags>
+    <dependencies></dependencies>
+  </metadata>
+  <files>
+	<file src="MoneySharp\$configuration$\MoneySharp.dll" target="lib\net45\"/>
+	<file src="MoneySharp\$configuration$\MoneySharp.pdb" target="lib\net45\" />
+	<file src="MoneySharp.Contract\$configuration$\MoneySharp.Contract.dll" target="lib\net45\"/>
+	<file src="MoneySharp.Contract\$configuration$\MoneySharp.Contract.pdb" target="lib\net45\" />
+  </files>
+</package>
