@@ -1,0 +1,14 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "MoneySharp.Contract": "1.0.0-*",
+    "RestSharp": "105.2.3"
+  },
+
+  "frameworks": {
+    "net46": {
+
+    }
+  }
+}
