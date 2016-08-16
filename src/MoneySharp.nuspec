@@ -16,9 +16,9 @@
     <dependencies></dependencies>
   </metadata>
   <files>
-	<file src="MoneySharp\$configuration$\net46\MoneySharp.dll" target="lib\net46\"/>
-	<file src="MoneySharp\$configuration$\net46\MoneySharp.pdb" target="lib\net46\" />
-	<file src="MoneySharp.Contract\$configuration$\net46\MoneySharp.Contract.dll" target="lib\net46\"/>
-	<file src="MoneySharp.Contract\$configuration$\net46\MoneySharp.Contract.pdb" target="lib\net45\" />
+	<file src="MoneySharp\bin\$configuration$\net46\MoneySharp.dll" target="lib\net46\"/>
+	<file src="MoneySharp\bin\$configuration$\net46\MoneySharp.pdb" target="lib\net46\" />
+	<file src="MoneySharp.Contract\bin\$configuration$\net46\MoneySharp.Contract.dll" target="lib\net46\"/>
+	<file src="MoneySharp.Contract\bin\$configuration$\net46\MoneySharp.Contract.pdb" target="lib\net45\" />
   </files>
 </package>
