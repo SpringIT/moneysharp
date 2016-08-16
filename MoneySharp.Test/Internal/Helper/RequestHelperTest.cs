@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using AutoMoq;
 using FluentAssertions;
 using MoneySharp.Contract.Exceptions;
 using MoneySharp.Internal.Helper;
+using Moq.AutoMock;
 using NUnit.Framework;
 using RestSharp;
 
@@ -13,16 +13,16 @@ namespace MoneySharp.Test.Internal.Helper
 {
     public class RequestHelperTest
     {
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         private RequestHelper _requestHelper;
 
         [SetUp]
         public void Setup()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
-            _requestHelper = _mocker.Create<RequestHelper>();
+            _requestHelper = _mocker.CreateInstance<RequestHelper>();
         }
 
         [TestCase(Method.GET, "test.json")]

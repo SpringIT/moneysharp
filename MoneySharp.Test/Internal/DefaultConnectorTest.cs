@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using AutoMoq;
 using FluentAssertions;
 using MoneySharp.Internal;
 using MoneySharp.Internal.Helper;
 using Moq;
+using Moq.AutoMock;
 using NUnit.Framework;
 using RestSharp;
 
@@ -12,7 +12,7 @@ namespace MoneySharp.Test.Internal
     [TestFixture]
     public class DefaultConnectorTest
     {
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         private Mock<IClientInitializer> _initializer;
         private Mock<IRequestHelper> _requestHelper;
@@ -28,15 +28,14 @@ namespace MoneySharp.Test.Internal
         public void Setup()
         {
             _urlAppend = "Test";
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _restRequest = _mocker.GetMock<IRestRequest>();
             _restClient = _mocker.GetMock<IRestClient>();
             _initializer = _mocker.GetMock<IClientInitializer>();
             _requestHelper = _mocker.GetMock<IRequestHelper>();
 
-            _connector = new DefaultConnector<GetObject, PostObject>(_urlAppend, _initializer.Object,
-                _requestHelper.Object);
+            _connector = new DefaultConnector<GetObject, PostObject>(_urlAppend, _initializer.Object,_requestHelper.Object);
         }
 
         [Test]

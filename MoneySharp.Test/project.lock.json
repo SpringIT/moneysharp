@@ -3,19 +3,6 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.6": {
-      "AutoMoq/1.6.2": {
-        "type": "package",
-        "dependencies": {
-          "Moq": "4.0.10827",
-          "Unity": "2.0.0"
-        },
-        "compile": {
-          "lib/net35/AutoMoq.dll": {}
-        },
-        "runtime": {
-          "lib/net35/AutoMoq.dll": {}
-        }
-      },
       "FluentAssertions/4.13.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -82,23 +69,6 @@
           "lib/net46/RestSharp.dll": {}
         }
       },
-      "Unity/2.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/20/Microsoft.Practices.ServiceLocation.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Interception.Configuration.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Interception.dll": {},
-          "lib/20/Microsoft.Practices.Unity.dll": {}
-        },
-        "runtime": {
-          "lib/20/Microsoft.Practices.ServiceLocation.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Configuration.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Interception.Configuration.dll": {},
-          "lib/20/Microsoft.Practices.Unity.Interception.dll": {},
-          "lib/20/Microsoft.Practices.Unity.dll": {}
-        }
-      },
       "MoneySharp/1.0.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6",
@@ -126,17 +96,6 @@
     }
   },
   "libraries": {
-    "AutoMoq/1.6.2": {
-      "sha512": "12sfFSvBl+DwJ6gOE6cv1XT6y2WBuYCWg7EV0xf2s4N6ILYlDW6BpBR9pX5lMHRGKhfAbc5RsTGh6qickIiKjA==",
-      "type": "package",
-      "path": "AutoMoq/1.6.2",
-      "files": [
-        "AutoMoq.1.6.2.nupkg.sha512",
-        "AutoMoq.nuspec",
-        "content/License.txt",
-        "lib/net35/AutoMoq.dll"
-      ]
-    },
     "FluentAssertions/4.13.0": {
       "sha512": "pwUxkKNClLDtcseAhXcsJ1zTn6f8lqSP4oxw1Fzspofp+7do2bL9XtXKkuHEoyAdiMh8qVnJEKpNHWxinwuyvw==",
       "type": "package",
@@ -346,27 +305,6 @@
         "readme.txt"
       ]
     },
-    "Unity/2.0.0": {
-      "sha512": "gZ7jSKJH1mqhMtkL65h0qlZHbyQOEXHfgw6bjsh8NCIfDHeO80AyE30bmNXYWJRqTLMmWs4jQr+YibrNMkcZ9A==",
-      "type": "package",
-      "path": "Unity/2.0.0",
-      "files": [
-        "Unity.2.0.0.nupkg.sha512",
-        "Unity.nuspec",
-        "lib/20/Microsoft.Practices.ServiceLocation.dll",
-        "lib/20/Microsoft.Practices.Unity.Configuration.dll",
-        "lib/20/Microsoft.Practices.Unity.Configuration.xml",
-        "lib/20/Microsoft.Practices.Unity.Interception.Configuration.dll",
-        "lib/20/Microsoft.Practices.Unity.Interception.Configuration.xml",
-        "lib/20/Microsoft.Practices.Unity.Interception.dll",
-        "lib/20/Microsoft.Practices.Unity.Interception.xml",
-        "lib/20/Microsoft.Practices.Unity.dll",
-        "lib/20/Microsoft.Practices.Unity.xml",
-        "lib/SL30/Microsoft.Practices.ServiceLocation.dll",
-        "lib/SL30/Microsoft.Practices.Unity.Silverlight.dll",
-        "lib/SL30/Microsoft.Practices.Unity.Silverlight.xml"
-      ]
-    },
     "MoneySharp/1.0.0": {
       "type": "project",
       "path": "../src/MoneySharp/project.json",
@@ -380,7 +318,6 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "AutoMoq >= 1.6.2",
       "FluentAssertions >= 4.13.0",
       "MoneySharp >= 1.0.0-*",
       "MoneySharp.Contract >= 1.0.0-*",

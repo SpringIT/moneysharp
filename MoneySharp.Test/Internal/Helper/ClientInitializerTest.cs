@@ -1,8 +1,8 @@
-﻿using AutoMoq;
-using MoneySharp.Contract.Model;
+﻿using MoneySharp.Contract.Model;
 using MoneySharp.Contract.Settings;
 using MoneySharp.Internal.Helper;
 using Moq;
+using Moq.AutoMock;
 using NUnit.Framework;
 
 namespace MoneySharp.Test.Internal.Helper
@@ -10,7 +10,7 @@ namespace MoneySharp.Test.Internal.Helper
     [TestFixture]
     public class ClientInitializerTest
     {
-        private AutoMoqer _mocker;
+        private AutoMocker _mocker;
 
         private Mock<IAuthenticationSettings> _authenticationSettings;
         private Mock<IUrlSettings> _urlSettings;
@@ -20,7 +20,7 @@ namespace MoneySharp.Test.Internal.Helper
         [SetUp]
         public void Setup()
         {
-            _mocker = new AutoMoqer();
+            _mocker = new AutoMocker();
 
             _authenticationSettings = _mocker.GetMock<IAuthenticationSettings>();
             _urlSettings = _mocker.GetMock<IUrlSettings>();
@@ -29,7 +29,7 @@ namespace MoneySharp.Test.Internal.Helper
             settingsProvider.Setup(c => c.GetAuthenticationSettings()).Returns(_authenticationSettings.Object);
             settingsProvider.Setup(c => c.GetUrlSettings()).Returns(_urlSettings.Object);
 
-            _configurator = _mocker.Create<ClientInitializer>();
+            _configurator = _mocker.CreateInstance<ClientInitializer>();
         }
 
         [Test]
