@@ -16,3 +16,7 @@ Install-Package MoneySharp
 ## Documentation
 
 We will provide documentation in the wiki
+
+## License
+
+See Apache License Version 2.0,
