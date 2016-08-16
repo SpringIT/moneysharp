@@ -7,7 +7,7 @@
     <authors>Spring IT</authors>
     <owners>Spring IT Solutions B.V.</owners>
     <projectUrl>https://github.com/SpringIT/MoneySharp</projectUrl>
-	<licenseUrl>https://github.com/SpringIT/MoneySharp/blob/master/LICENSE.md</licenseUrl
+	<licenseUrl>https://github.com/SpringIT/MoneySharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A C# implentation of the Moneybird API V2.</description>
     <releaseNotes>-</releaseNotes>
