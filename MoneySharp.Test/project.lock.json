@@ -2,7 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETFramework,Version=v4.6": {
+    ".NETFramework,Version=v4.5.1": {
       "FluentAssertions/4.13.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -63,38 +63,38 @@
       "RestSharp/105.2.3": {
         "type": "package",
         "compile": {
-          "lib/net46/RestSharp.dll": {}
+          "lib/net451/RestSharp.dll": {}
         },
         "runtime": {
-          "lib/net46/RestSharp.dll": {}
+          "lib/net451/RestSharp.dll": {}
         }
       },
       "MoneySharp/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.6",
+        "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
           "MoneySharp.Contract": "1.0.0",
           "RestSharp": "105.2.3"
         },
         "compile": {
-          "net46/MoneySharp.dll": {}
+          "net451/MoneySharp.dll": {}
         },
         "runtime": {
-          "net46/MoneySharp.dll": {}
+          "net451/MoneySharp.dll": {}
         }
       },
       "MoneySharp.Contract/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.6",
+        "framework": ".NETFramework,Version=v4.5.1",
         "compile": {
-          "net46/MoneySharp.Contract.dll": {}
+          "net451/MoneySharp.Contract.dll": {}
         },
         "runtime": {
-          "net46/MoneySharp.Contract.dll": {}
+          "net451/MoneySharp.Contract.dll": {}
         }
       }
     },
-    ".NETFramework,Version=v5.1": {
+    ".NETFramework,Version=v4.6": {
       "FluentAssertions/4.13.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -418,8 +418,8 @@
       "NUnit >= 3.4.1",
       "NUnitLite >= 3.4.1"
     ],
-    ".NETFramework,Version=v4.6": [],
-    ".NETFramework,Version=v5.1": []
+    ".NETFramework,Version=v4.5.1": [],
+    ".NETFramework,Version=v4.6": []
   },
   "tools": {},
   "projectFileToolGroups": {}

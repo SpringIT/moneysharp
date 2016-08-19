@@ -23,7 +23,7 @@ namespace MoneySharp
         /// Get all contacts from moneybird
         /// </summary>
         /// <returns>List of all contacts</returns>
-        public IList<Contract.Model.Contact> GetAllContacts()
+        public IList<Contract.Model.Contact> Get()
         {
             var allContacts = _connector.GetList();
             return allContacts.Select(_contactMapper.MapToContract).ToList();
@@ -34,7 +34,7 @@ namespace MoneySharp
         /// </summary>
         /// <param name="contact">Contact to create</param>
         /// <returns>Id of created contact</returns>
-        public long CreateContact(Contract.Model.Contact contact)
+        public long Create(Contract.Model.Contact contact)
         {
             var mappedContact = _contactMapper.MapToApi(contact, null);
             var wrappedContact = new ContactWrapper(mappedContact);
@@ -46,15 +46,15 @@ namespace MoneySharp
         /// <summary>
         /// Update contact in moneybird
         /// </summary>
-        /// <param name="contactId">Id of contact</param>
+        /// <param name="id">Id of contact</param>
         /// <param name="contact">Contact to update</param>
         /// <returns>Contact with mapped properties</returns>
-        public Contract.Model.Contact UpdateContact(long contactId, Contract.Model.Contact contact)
+        public Contract.Model.Contact Update(long id, Contract.Model.Contact contact)
         {
-            var current = _connector.GetById(contactId);
+            var current = _connector.GetById(id);
             var mappedContact = _contactMapper.MapToApi(contact, current);
             var wrappedContact = new ContactWrapper(mappedContact);
-            var result = _connector.Update(contactId, wrappedContact);
+            var result = _connector.Update(id, wrappedContact);
             return _contactMapper.MapToContract(result);
         }
 

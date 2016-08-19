@@ -23,6 +23,7 @@ namespace MoneySharp.Internal.Helper
         private IUrlSettings UrlSettings => _urlSettings ??
                                                           (_urlSettings = _settingsProvider.GetUrlSettings());
 
+
         //Lazy loading 
         private IRestClient _client;
 
