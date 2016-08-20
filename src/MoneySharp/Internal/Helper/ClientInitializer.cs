@@ -1,4 +1,5 @@
-﻿using MoneySharp.Contract.Model;
+﻿using System;
+using MoneySharp.Contract.Model;
 using MoneySharp.Contract.Settings;
 using RestSharp;
 
@@ -6,36 +7,30 @@ namespace MoneySharp.Internal.Helper
 {
     public class ClientInitializer : IClientInitializer
     {
-        private readonly ISettingsProvider _settingsProvider;
+        private static ISettingsProvider _settingsProvider;
+
+        private static readonly Lazy<ISettings> Settings =
+            new Lazy<ISettings>(() => _settingsProvider.GetSettings());
+
+        private readonly Lazy<IRestClient> _client = new Lazy<IRestClient>(LoadClient);
 
         public ClientInitializer(ISettingsProvider settingsProvider)
         {
             _settingsProvider = settingsProvider;
         }
 
-        private IAuthenticationSettings _authenticationSettings;
-        //Lazy loading 
-        private IAuthenticationSettings AuthenticationSettings => _authenticationSettings ??
-                                                          (_authenticationSettings = _settingsProvider.GetAuthenticationSettings());
-
-        private IUrlSettings _urlSettings;
-        //Lazy loading 
-        private IUrlSettings UrlSettings => _urlSettings ??
-                                                          (_urlSettings = _settingsProvider.GetUrlSettings());
-
-
-        //Lazy loading 
-        private IRestClient _client;
-
         public IRestClient Get()
         {
-            if (_client == null)
-            {
-                _client = new RestClient($"{UrlSettings.Url}/api/{UrlSettings.Version}/{UrlSettings.AdministrationId}");
-                _client.AddDefaultHeader("Authorization", $"Bearer {AuthenticationSettings.Token}");
-            }
-       
-            return _client;
+            return _client.Value;
+        }
+
+        private static IRestClient LoadClient()
+        {
+            var settings = Settings.Value;
+            var url = $"{settings.Url}/api/{settings.Version}/{settings.AdministrationId}/";
+            var client = new RestClient(url);
+            client.AddDefaultHeader("Authorization", $"Bearer {settings.Token}");
+            return client;
         }
     }
 }
