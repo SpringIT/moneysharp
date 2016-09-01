@@ -9,5 +9,6 @@
         public long ledger_account_id { get; set; }
         public string period { get; set; }
         public int row_order { get; set; }
+        public long product_id { get; set; }
     }
 }

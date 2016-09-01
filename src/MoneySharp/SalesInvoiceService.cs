@@ -19,32 +19,18 @@ namespace MoneySharp
             _salesInvoiceMapper = salesInvoiceMapper;
         }
 
-        /// <summary>
-        /// Get all sales invoices from moneybird. Limit is 100 invoices
-        /// </summary>
-        /// <returns></returns>
         public IList<Contract.Model.SalesInvoice> Get()
         {
             var salesInvoices = _salesInvoiceConnector.GetList();
             return salesInvoices.Select(_salesInvoiceMapper.MapToContract).ToList();
         }
 
-        /// <summary>
-        /// Gets single sales invoice
-        /// </summary>
-        /// <param name="id">Id of sales invoice</param>
-        /// <returns></returns>
         public Contract.Model.SalesInvoice GetById(long id)
         {
             var salesInvoice = _salesInvoiceConnector.GetById(id);
             return _salesInvoiceMapper.MapToContract(salesInvoice);
         }
 
-        /// <summary>
-        /// Create new sales invoice in moneybird
-        /// </summary>
-        /// <param name="salesInvoice">Invoice to create</param>
-        /// <returns></returns>
         public Contract.Model.SalesInvoice Create(Contract.Model.SalesInvoice salesInvoice)
         {
             var salesInvoicePost = _salesInvoiceMapper.MapToApi(salesInvoice, null);
@@ -53,12 +39,6 @@ namespace MoneySharp
             return _salesInvoiceMapper.MapToContract(createdSalesInvoice);
         }
 
-        /// <summary>
-        /// Updates sales invoice in momenybird
-        /// </summary>
-        /// <param name="id">Id of sales invoice</param>
-        /// <param name="salesInvoice">Sales invoice to update</param>
-        /// <returns></returns>
         public Contract.Model.SalesInvoice Update(long id, Contract.Model.SalesInvoice salesInvoice)
         {
             var currentSalesInvoice = _salesInvoiceConnector.GetById(id);
@@ -68,10 +48,6 @@ namespace MoneySharp
             return _salesInvoiceMapper.MapToContract(updatedSalesInvoice);
         }
 
-        /// <summary>
-        /// Delete invoice from moneybird
-        /// </summary>
-        /// <param name="id">Id of sales invoice</param>
         public void Delete(long id)
         {
             _salesInvoiceConnector.Delete(id);
