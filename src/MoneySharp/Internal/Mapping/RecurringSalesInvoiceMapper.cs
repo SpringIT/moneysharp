@@ -7,24 +7,23 @@ using RestSharp;
 
 namespace MoneySharp.Internal.Mapping
 {
-    public class SalesInvoiceMapper : IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost>
+    public class RecurringSalesInvoiceMapper : IMapper<Contract.Model.RecurringSalesInvoice, RecurringSalesInvoiceGet, RecurringSalesInvoicePost>
     {
         private readonly IMapper<Contract.Model.SalesInvoiceDetail, SalesInvoiceDetail, SalesInvoiceDetail>
-            _salesInvoiceDetailMapper;
+              _salesInvoiceDetailMapper;
 
         private readonly IMapper<Contract.Model.CustomField, CustomField, CustomField> _customFieldMapper;
 
-        public SalesInvoiceMapper(IMapper<Contract.Model.SalesInvoiceDetail, SalesInvoiceDetail, SalesInvoiceDetail> salesInvoiceDetailMapper, IMapper<Contract.Model.CustomField, CustomField, CustomField> customFieldMapper)
+        public RecurringSalesInvoiceMapper(IMapper<Contract.Model.SalesInvoiceDetail, SalesInvoiceDetail, SalesInvoiceDetail> salesInvoiceDetailMapper, IMapper<Contract.Model.CustomField, CustomField, CustomField> customFieldMapper)
         {
             _salesInvoiceDetailMapper = salesInvoiceDetailMapper;
             _customFieldMapper = customFieldMapper;
         }
 
-        public Contract.Model.SalesInvoice MapToContract(SalesInvoiceGet salesInvoice)
+        public Contract.Model.RecurringSalesInvoice MapToContract(RecurringSalesInvoiceGet salesInvoice)
         {
-            var mapToContract = new Contract.Model.SalesInvoice
+            var mapToContract = new Contract.Model.RecurringSalesInvoice
             {
-                Url = salesInvoice.url,
                 ContactId = salesInvoice.contact_id,
                 CustomFields = salesInvoice.custom_fields.Select(_customFieldMapper.MapToContract).ToList(),
                 Details = salesInvoice.details.Select(_salesInvoiceDetailMapper.MapToContract).ToList(),
@@ -41,15 +40,16 @@ namespace MoneySharp.Internal.Mapping
             mapToContract.TotalPriceIncludingTax = salesInvoice.total_price_incl_tax;
             mapToContract.TotalPriceExcludingTax = salesInvoice.total_price_excl_tax;
             mapToContract.Id = salesInvoice.id;
-            mapToContract.Url = salesInvoice.url;
-            mapToContract.State = GetContractState(salesInvoice.state);
-
+            mapToContract.FrequencyType = GetContractFrequency(salesInvoice.frequency_type);
+            mapToContract.Frequency = salesInvoice.frequency;
+            mapToContract.StartDate = salesInvoice.start_date;
+            mapToContract.LastDate = salesInvoice.last_date;
             return mapToContract;
         }
 
-        public SalesInvoicePost MapToApi(Contract.Model.SalesInvoice  salesInvoice, SalesInvoiceGet current)
+        public RecurringSalesInvoicePost MapToApi(Contract.Model.RecurringSalesInvoice salesInvoice, RecurringSalesInvoiceGet current)
         {
-            var returnValue = new SalesInvoicePost();
+            var returnValue = new RecurringSalesInvoicePost();
             if (current != null)
             {
                 SetCustomFields(current, returnValue);
@@ -68,12 +68,10 @@ namespace MoneySharp.Internal.Mapping
                 returnValue.workflow_id = current.workflow_id;
             }
 
-
             SetCustomFields(salesInvoice, returnValue);
-            returnValue.details_attributes = salesInvoice.Details?.Select(c=> _salesInvoiceDetailMapper.MapToApi(c, null)).ToList() ?? new List<SalesInvoiceDetail>();
+            returnValue.details_attributes = salesInvoice.Details?.Select(c => _salesInvoiceDetailMapper.MapToApi(c, null)).ToList() ?? new List<SalesInvoiceDetail>();
             returnValue.invoice_id = salesInvoice.InvoiceId;
             returnValue.id = salesInvoice.Id;
-            returnValue.state = GetApiState(salesInvoice.State);
             returnValue.total_price_excl_tax = salesInvoice.TotalPriceExcludingTax;
             returnValue.total_price_incl_tax = salesInvoice.TotalPriceIncludingTax;
             returnValue.total_tax = salesInvoice.TotalTax;
@@ -83,10 +81,14 @@ namespace MoneySharp.Internal.Mapping
             returnValue.due_date = salesInvoice.DueDate?.ToString("yyyy-MM-dd");
             returnValue.invoice_date = salesInvoice.InvoiceDate?.ToString("yyyy-MM-dd");
             returnValue.prices_are_incl_tax = salesInvoice.PriceAreIncludedTax;
+            returnValue.start_date = salesInvoice.StartDate;
+            returnValue.last_date = salesInvoice.LastDate;
+            returnValue.frequency = salesInvoice.Frequency;
+            returnValue.frequency_type = GetApiFrequencyType(salesInvoice.FrequencyType);
             return returnValue;
         }
 
-        private void SetCustomFields(SalesInvoiceGet current, SalesInvoicePost returnValue)
+        private void SetCustomFields(RecurringSalesInvoiceGet current, SalesInvoicePost returnValue)
         {
             var jobject = new JsonObject();
             foreach (var customField in current.custom_fields)
@@ -97,7 +99,7 @@ namespace MoneySharp.Internal.Mapping
             returnValue.custom_fields_attributes = jobject;
         }
 
-        private void SetCustomFields(Contract.Model.SalesInvoice current, SalesInvoicePost returnValue)
+        private void SetCustomFields(Contract.Model.RecurringSalesInvoice current, SalesInvoicePost returnValue)
         {
             var jobject = new JsonObject();
             if (current.CustomFields != null)
@@ -110,41 +112,42 @@ namespace MoneySharp.Internal.Mapping
             returnValue.custom_fields_attributes = jobject;
         }
 
-        private string GetApiState(Contract.Model.SalesInvoiceStatus state)
+        private string GetApiFrequencyType(Contract.Model.FrequencyType type)
         {
-            switch (state)
+            switch (type)
             {
-                case Contract.Model.SalesInvoiceStatus.Paid:
-                    return "paid";
-                case Contract.Model.SalesInvoiceStatus.Draft:
-                    return "draft";
-                case Contract.Model.SalesInvoiceStatus.Late:
-                    return "late";
-                case Contract.Model.SalesInvoiceStatus.Open:
-                    return "open";
+                case Contract.Model.FrequencyType.Day:
+                    return "day";
+                case Contract.Model.FrequencyType.Quarter:
+                    return "quarter";
+                case Contract.Model.FrequencyType.Month:
+                    return "month";
+                case Contract.Model.FrequencyType.Week:
+                    return "week";
+                case Contract.Model.FrequencyType.Year:
+                    return "year";
                 default:
-                    throw new NotSupportedException($"State: {state} is not supported");
+                    throw new NotSupportedException($"FrequencyType: {type} is not supported");
             }
         }
 
-        private Contract.Model.SalesInvoiceStatus GetContractState(string state)
+        private Contract.Model.FrequencyType GetContractFrequency(string type)
         {
-            switch (state.ToUpper())
+            switch (type.ToLower())
             {
-                case "DRAFT":
-                    return Contract.Model.SalesInvoiceStatus.Draft;
-                case "LATE":
-                    return Contract.Model.SalesInvoiceStatus.Late;
-                case "OPEN":
-                    return Contract.Model.SalesInvoiceStatus.Open;
-                case "PAID":
-                    return Contract.Model.SalesInvoiceStatus.Paid;
+                case "day":
+                    return Contract.Model.FrequencyType.Day;
+                case "quarter":
+                    return Contract.Model.FrequencyType.Quarter;
+                case "month":
+                    return Contract.Model.FrequencyType.Month;
+                case "year":
+                    return Contract.Model.FrequencyType.Year;
+                case "week":
+                    return Contract.Model.FrequencyType.Week;
                 default:
-                    throw new NotSupportedException($"State: {state} is not supported");
+                    throw new NotSupportedException($"FrequencyType: {type} is not supported");
             }
         }
-
     }
-
-
 }

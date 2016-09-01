@@ -9,5 +9,6 @@
         public long LedgerAccountId { get; set; }
         public string Period { get; set; }
         public int RowOrder { get; set; }
+        public long ProductId { get; set; }
     }
 }
