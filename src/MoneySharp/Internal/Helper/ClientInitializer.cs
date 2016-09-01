@@ -7,16 +7,14 @@ namespace MoneySharp.Internal.Helper
 {
     public class ClientInitializer : IClientInitializer
     {
-        private static ISettingsProvider _settingsProvider;
+        private readonly ISettings _settings;
 
-        private static readonly Lazy<ISettings> Settings =
-            new Lazy<ISettings>(() => _settingsProvider.GetSettings());
+        private readonly Lazy<IRestClient> _client;
 
-        private readonly Lazy<IRestClient> _client = new Lazy<IRestClient>(LoadClient);
-
-        public ClientInitializer(ISettingsProvider settingsProvider)
+        public ClientInitializer(ISettings settings)
         {
-            _settingsProvider = settingsProvider;
+            _settings = settings;
+            _client = new Lazy<IRestClient>(LoadClient);
         }
 
         public IRestClient Get()
@@ -24,12 +22,11 @@ namespace MoneySharp.Internal.Helper
             return _client.Value;
         }
 
-        private static IRestClient LoadClient()
+        private IRestClient LoadClient()
         {
-            var settings = Settings.Value;
-            var url = $"{settings.Url}/api/{settings.Version}/{settings.AdministrationId}/";
+            var url = $"{_settings.Url}/api/{_settings.Version}/{_settings.AdministrationId}/";
             var client = new RestClient(url);
-            client.AddDefaultHeader("Authorization", $"Bearer {settings.Token}");
+            client.AddDefaultHeader("Authorization", $"Bearer {_settings.Token}");
             return client;
         }
     }

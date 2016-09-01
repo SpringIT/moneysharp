@@ -14,25 +14,13 @@ namespace MoneySharp
         private readonly ISalesInvoiceService _salesInvoiceService;
         private readonly IRecurringSalesInvoiceService _recurringSalesInvoiceService;
 
-        public MoneyBirdClient(ISettingsProvider settingsProvider)
+        public MoneyBirdClient(IContactService contactService, ISalesInvoiceService salesInvoiceService, IRecurringSalesInvoiceService recurringSalesInvoiceService)
         {
             var requestHelper = new RequestHelper();
-            var clientInitializer = new ClientInitializer(settingsProvider);
 
-            _contactService =
-                new ContactService(
-                    new DefaultConnector<Contact, ContactWrapper>("contacts", clientInitializer, requestHelper),
-                    new ContactMapper());
-            _salesInvoiceService =
-                new SalesInvoiceService(
-                    new DefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper>("sales_invoices", clientInitializer,
-                        requestHelper), new SalesInvoiceMapper(new SalesInvoiceDetailMapper(), new CustomFieldMapper()));
-            _recurringSalesInvoiceService =
-                new RecurringSalesInvoiceService(
-                    new DefaultConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>(
-                        "recurring_sales_invoices", clientInitializer,
-                        requestHelper),
-                    new RecurringSalesInvoiceMapper(new SalesInvoiceDetailMapper(), new CustomFieldMapper()));
+            _contactService = contactService;
+            _salesInvoiceService = salesInvoiceService;
+            _recurringSalesInvoiceService = recurringSalesInvoiceService;
         }
 
         public IContactService Contacts => _contactService;
