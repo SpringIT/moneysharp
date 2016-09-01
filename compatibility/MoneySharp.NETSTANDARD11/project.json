@@ -2,13 +2,14 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "MoneySharp": "1.0.0-*",
-    "MoneySharp.Contract": "1.0.0-*"
+    "NETStandard.Library": "1.6.0",
+    "RestSharp": "105.2.3"
+
   },
 
   "frameworks": {
     "netstandard1.1": {
-      "imports": "net451"
+      "imports": [ "net451" ]
     }
   }
 }

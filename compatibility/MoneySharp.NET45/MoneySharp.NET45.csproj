@@ -44,11 +44,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\MoneySharp.Contract\MoneySharp.Contract.xproj">
+    <ProjectReference Include="..\..\src\MoneySharp.Contract\MoneySharp.Contract.xproj">
       <Project>{a1ad02d2-1185-420f-8c03-fcb0d20a6c0b}</Project>
       <Name>MoneySharp.Contract</Name>
     </ProjectReference>
-    <ProjectReference Include="..\src\MoneySharp\MoneySharp.xproj">
+    <ProjectReference Include="..\..\src\MoneySharp\MoneySharp.xproj">
       <Project>{dcab328a-a825-4808-9ba3-1931bd042251}</Project>
       <Name>MoneySharp</Name>
     </ProjectReference>
