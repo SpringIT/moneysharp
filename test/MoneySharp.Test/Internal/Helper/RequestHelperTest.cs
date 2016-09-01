@@ -60,7 +60,7 @@ namespace MoneySharp.Test.Internal.Helper
         [Test]
         public void CheckResult_Forbidden_Throws_RateLimitExceededException()
         {
-            var response = new MockRestResponse { StatusCode = HttpStatusCode.Forbidden };
+            var response = new RestResponse { StatusCode = HttpStatusCode.Forbidden };
 
             Action action = () => _requestHelper.CheckResult(response);
             action.ShouldThrow<RateLimitExceededException>();
@@ -69,7 +69,7 @@ namespace MoneySharp.Test.Internal.Helper
         [Test]
         public void CheckResult_Unauthorized_Throws_UnauthorizedException()
         {
-            var response = new MockRestResponse { StatusCode = HttpStatusCode.Unauthorized };
+            var response = new RestResponse { StatusCode = HttpStatusCode.Unauthorized };
 
             Action action = () => _requestHelper.CheckResult(response);
             action.ShouldThrow<UnauthorizedMoneybirdException>();
@@ -78,7 +78,7 @@ namespace MoneySharp.Test.Internal.Helper
         [Test]
         public void CheckResult_NotFound_Throws_KeyNotFoundException()
         {
-            var response = new MockRestResponse { StatusCode = HttpStatusCode.NotFound };
+            var response = new RestResponse { StatusCode = HttpStatusCode.NotFound };
 
             Action action = () => _requestHelper.CheckResult(response);
             action.ShouldThrow<KeyNotFoundException>();

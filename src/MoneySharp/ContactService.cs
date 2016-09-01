@@ -19,36 +19,26 @@ namespace MoneySharp
             _contactMapper = contactMapper;
         }
 
-        /// <summary>
-        /// Get all contacts from moneybird
-        /// </summary>
-        /// <returns>List of all contacts</returns>
         public IList<Contract.Model.Contact> Get()
         {
             var allContacts = _connector.GetList();
             return allContacts.Select(_contactMapper.MapToContract).ToList();
         }
 
-        /// <summary>
-        /// Create contact in moneybird
-        /// </summary>
-        /// <param name="contact">Contact to create</param>
-        /// <returns>Id of created contact</returns>
+        public Contract.Model.Contact GetById(long id)
+        {
+            var result = _connector.GetById(id);
+            return _contactMapper.MapToContract(result);
+        }
+
         public long Create(Contract.Model.Contact contact)
         {
             var mappedContact = _contactMapper.MapToApi(contact, null);
             var wrappedContact = new ContactWrapper(mappedContact);
             var result = _connector.Create(wrappedContact);
-
             return result.id;
         }
 
-        /// <summary>
-        /// Update contact in moneybird
-        /// </summary>
-        /// <param name="id">Id of contact</param>
-        /// <param name="contact">Contact to update</param>
-        /// <returns>Contact with mapped properties</returns>
         public Contract.Model.Contact Update(long id, Contract.Model.Contact contact)
         {
             var current = _connector.GetById(id);
@@ -58,11 +48,7 @@ namespace MoneySharp
             return _contactMapper.MapToContract(result);
         }
 
-        /// <summary>
-        /// Delete contact from moneybird
-        /// </summary>
-        /// <param name="id">Id of contact</param>
-        public void DeleteContact(long id)
+        public void Delete(long id)
         {
             _connector.Delete(id);
         }

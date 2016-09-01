@@ -29,7 +29,7 @@ namespace MoneySharp.Internal.Helper
                 case HttpStatusCode.Created:
                     return;
                 case HttpStatusCode.Unauthorized:
-                    throw new UnauthorizedMoneybirdException("Unauthorized by moneybird. See ISettingsProvider GetAuthenticationSettings");
+                    throw new UnauthorizedMoneybirdException("Unauthorized by moneybird. See ISettingsProvider GetSettings");
                 case HttpStatusCode.Forbidden:
                     throw new RateLimitExceededException("Moneybird can process 350 calls each hour");
                 case HttpStatusCode.NotFound:
