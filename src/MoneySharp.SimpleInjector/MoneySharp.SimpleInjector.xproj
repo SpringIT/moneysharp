@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>02dc52ed-cc01-4903-9c96-c83ea8019007</ProjectGuid>
-    <RootNamespace>MoneySharp.NETSTANDARD16</RootNamespace>
+    <ProjectGuid>822787b7-af57-422d-b711-941b183b879c</ProjectGuid>
+    <RootNamespace>MoneySharp.SimpleInjector</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

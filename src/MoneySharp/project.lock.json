@@ -107,10 +107,10 @@
       "RestSharp/105.2.3": {
         "type": "package",
         "compile": {
-          "lib/net451/RestSharp.dll": {}
+          "lib/net45/RestSharp.dll": {}
         },
         "runtime": {
-          "lib/net451/RestSharp.dll": {}
+          "lib/net45/RestSharp.dll": {}
         }
       },
       "runtime.native.System/4.0.0": {
@@ -2865,11 +2865,11 @@
     "": [
       "MoneySharp.Contract >= 1.0.0-*",
       "NETStandard.Library >= 1.6.0",
-      "RestSharp >= 105.2.3",
-      "System.Dynamic.Runtime >= 4.0.11"
+      "RestSharp >= 105.2.3"
     ],
     ".NETStandard,Version=v1.1": [
-      "Microsoft.NETCore.Portable.Compatibility >= 1.0.1"
+      "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
+      "System.Dynamic.Runtime >= 4.0.11"
     ]
   },
   "tools": {},

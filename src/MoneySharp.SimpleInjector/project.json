@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "title": "MoneySharp.SimpleInjector",
+  "description": "SimpleInjector integration A C# implentation of the Moneybird API V2.",
+  "copyright": "Spring IT Solutions B.V.",
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "SimpleInjector": "3.2.2",
+    "MoneySharp": "1.0.0.*",
+    "MoneySharp.Contract": "1.0.0.*"
+  },
+
+  "frameworks": {
+    "netstandard1.1": {
+      "imports": "net451"
+    }
+  }
+}

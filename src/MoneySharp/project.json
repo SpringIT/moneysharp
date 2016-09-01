@@ -7,15 +7,14 @@
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "MoneySharp.Contract": "1.0.0-*",
-    "RestSharp": "105.2.3",
-    "System.Dynamic.Runtime": "4.0.11"
+    "RestSharp": "105.2.3"
   },
-
   "frameworks": {
     "netstandard1.1": {
-      "imports": "net451",
+      "imports": "net45",
       "dependencies": {
-        "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
+        "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+        "System.Dynamic.Runtime": "4.0.11"
       }
     }
   }

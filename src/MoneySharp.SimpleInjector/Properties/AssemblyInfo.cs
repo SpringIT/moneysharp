@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MoneySharp.NETSTANDARD11")]
+[assembly: AssemblyProduct("MoneyBird.SimpleInjector")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,4 +16,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5fc696a0-a1cc-4ac4-8670-0e8bfc2d4eea")]
+[assembly: Guid("822787b7-af57-422d-b711-941b183b879c")]
