@@ -1,6 +1,7 @@
 ﻿{
   "version": "1.0.0-*",
   "title": "MoneySharp",
+  "description": "A C# API implementation for MoneyBird",
   "copyright": "Spring IT Solutions B.V.",
 
   "dependencies": {

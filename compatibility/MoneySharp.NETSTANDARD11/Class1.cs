@@ -10,7 +10,6 @@ namespace MoneySharp.NETSTANDARD11
     {
         public Class1()
         {
-            var c= new RestClient("s");
         }
     }
 }
