@@ -2,14 +2,66 @@
   "locked": false,
   "version": 2,
   "targets": {
-    ".NETFramework,Version=v4.5.1": {},
-    ".NETFramework,Version=v4.6": {}
+    ".NETStandard,Version=v1.1": {
+      "Newtonsoft.Json/3.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        }
+      },
+      "System/4.1.311.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "(, )"
+        },
+        "compile": {
+          "lib/net451/SXN.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net451/SXN.Core.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Newtonsoft.Json/3.5.8": {
+      "sha512": "Xmri4q9s1NjuiBtOFkWMU9sUZdw5V7kFSf3CQQ3TlDyzWQHo94d5cHNxsSlnezGAZSPfdEG5k7bOrkzTe6rUOQ==",
+      "type": "package",
+      "path": "Newtonsoft.Json/3.5.8",
+      "files": [
+        "Newtonsoft.Json.3.5.8.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/20/Newtonsoft.Json.Net20.dll",
+        "lib/20/Newtonsoft.Json.Net20.pdb",
+        "lib/20/Newtonsoft.Json.Net20.xml",
+        "lib/35/Newtonsoft.Json.dll",
+        "lib/35/Newtonsoft.Json.pdb",
+        "lib/35/Newtonsoft.Json.xml",
+        "lib/SL/Newtonsoft.Json.Silverlight.dll",
+        "lib/SL/Newtonsoft.Json.Silverlight.pdb",
+        "lib/SL/Newtonsoft.Json.Silverlight.xml"
+      ]
+    },
+    "System/4.1.311.2": {
+      "sha512": "P4cOoxreiNkBkP+Ir8W6GXxW2/5eneF9F1pAmTWHv3GEl1uLy65YDQAWfaLo4X5Tl+VFhl890dwD0exo+wzm8Q==",
+      "type": "package",
+      "path": "System/4.1.311.2",
+      "files": [
+        "System.4.1.311.2.nupkg.sha512",
+        "System.nuspec",
+        "lib/net451/SXN.Core.dll",
+        "lib/net451/SXN.Core.xml"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "": [],
-    ".NETFramework,Version=v4.5.1": [],
-    ".NETFramework,Version=v4.6": []
+    "": [
+      "System >= 4.0.0"
+    ],
+    ".NETStandard,Version=v1.1": []
   },
   "tools": {},
   "projectFileToolGroups": {}

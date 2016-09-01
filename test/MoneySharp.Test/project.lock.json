@@ -39,6 +39,15 @@
           "lib/net40/Moq.AutoMock.dll": {}
         }
       },
+      "Newtonsoft.Json/3.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        }
+      },
       "NUnit/3.4.1": {
         "type": "package",
         "compile": {
@@ -69,28 +78,43 @@
           "lib/net451/RestSharp.dll": {}
         }
       },
+      "System/4.1.311.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "(, )"
+        },
+        "compile": {
+          "lib/net451/SXN.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net451/SXN.Core.dll": {}
+        }
+      },
       "MoneySharp/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "MoneySharp.Contract": "1.0.0",
           "RestSharp": "105.2.3"
         },
         "compile": {
-          "net451/MoneySharp.dll": {}
+          "netstandard1.1/MoneySharp.dll": {}
         },
         "runtime": {
-          "net451/MoneySharp.dll": {}
+          "netstandard1.1/MoneySharp.dll": {}
         }
       },
       "MoneySharp.Contract/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETStandard,Version=v1.1",
+        "dependencies": {
+          "System": "1.0.0"
+        },
         "compile": {
-          "net451/MoneySharp.Contract.dll": {}
+          "netstandard1.1/MoneySharp.Contract.dll": {}
         },
         "runtime": {
-          "net451/MoneySharp.Contract.dll": {}
+          "netstandard1.1/MoneySharp.Contract.dll": {}
         }
       }
     },
@@ -131,6 +155,15 @@
           "lib/net40/Moq.AutoMock.dll": {}
         }
       },
+      "Newtonsoft.Json/3.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/35/Newtonsoft.Json.dll": {}
+        }
+      },
       "NUnit/3.4.1": {
         "type": "package",
         "compile": {
@@ -161,28 +194,43 @@
           "lib/net46/RestSharp.dll": {}
         }
       },
+      "System/4.1.311.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "(, )"
+        },
+        "compile": {
+          "lib/net451/SXN.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net451/SXN.Core.dll": {}
+        }
+      },
       "MoneySharp/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.6",
+        "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
           "MoneySharp.Contract": "1.0.0",
           "RestSharp": "105.2.3"
         },
         "compile": {
-          "net46/MoneySharp.dll": {}
+          "netstandard1.1/MoneySharp.dll": {}
         },
         "runtime": {
-          "net46/MoneySharp.dll": {}
+          "netstandard1.1/MoneySharp.dll": {}
         }
       },
       "MoneySharp.Contract/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.6",
+        "framework": ".NETStandard,Version=v1.1",
+        "dependencies": {
+          "System": "1.0.0"
+        },
         "compile": {
-          "net46/MoneySharp.Contract.dll": {}
+          "netstandard1.1/MoneySharp.Contract.dll": {}
         },
         "runtime": {
-          "net46/MoneySharp.Contract.dll": {}
+          "netstandard1.1/MoneySharp.Contract.dll": {}
         }
       }
     }
@@ -310,6 +358,24 @@
         "lib/net40/Moq.AutoMock.pdb"
       ]
     },
+    "Newtonsoft.Json/3.5.8": {
+      "sha512": "Xmri4q9s1NjuiBtOFkWMU9sUZdw5V7kFSf3CQQ3TlDyzWQHo94d5cHNxsSlnezGAZSPfdEG5k7bOrkzTe6rUOQ==",
+      "type": "package",
+      "path": "Newtonsoft.Json/3.5.8",
+      "files": [
+        "Newtonsoft.Json.3.5.8.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/20/Newtonsoft.Json.Net20.dll",
+        "lib/20/Newtonsoft.Json.Net20.pdb",
+        "lib/20/Newtonsoft.Json.Net20.xml",
+        "lib/35/Newtonsoft.Json.dll",
+        "lib/35/Newtonsoft.Json.pdb",
+        "lib/35/Newtonsoft.Json.xml",
+        "lib/SL/Newtonsoft.Json.Silverlight.dll",
+        "lib/SL/Newtonsoft.Json.Silverlight.pdb",
+        "lib/SL/Newtonsoft.Json.Silverlight.xml"
+      ]
+    },
     "NUnit/3.4.1": {
       "sha512": "G/9h/ENn8+GvT5DvBqVNrUhIWuxtAr0/oVGN2ljKVUw50EAZYBzeWSy9s6nqMswaQACpQzljql1sWQ/peE2eJg==",
       "type": "package",
@@ -397,15 +463,26 @@
         "readme.txt"
       ]
     },
+    "System/4.1.311.2": {
+      "sha512": "P4cOoxreiNkBkP+Ir8W6GXxW2/5eneF9F1pAmTWHv3GEl1uLy65YDQAWfaLo4X5Tl+VFhl890dwD0exo+wzm8Q==",
+      "type": "package",
+      "path": "System/4.1.311.2",
+      "files": [
+        "System.4.1.311.2.nupkg.sha512",
+        "System.nuspec",
+        "lib/net451/SXN.Core.dll",
+        "lib/net451/SXN.Core.xml"
+      ]
+    },
     "MoneySharp/1.0.0": {
       "type": "project",
-      "path": "../src/MoneySharp/project.json",
-      "msbuildProject": "../src/MoneySharp/MoneySharp.xproj"
+      "path": "../../src/MoneySharp/project.json",
+      "msbuildProject": "../../src/MoneySharp/MoneySharp.xproj"
     },
     "MoneySharp.Contract/1.0.0": {
       "type": "project",
-      "path": "../src/MoneySharp.Contract/project.json",
-      "msbuildProject": "../src/MoneySharp.Contract/MoneySharp.Contract.xproj"
+      "path": "../../src/MoneySharp.Contract/project.json",
+      "msbuildProject": "../../src/MoneySharp.Contract/MoneySharp.Contract.xproj"
     }
   },
   "projectFileDependencyGroups": {

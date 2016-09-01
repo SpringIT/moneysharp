@@ -33,11 +33,25 @@
           "lib/net451/SXN.Core.dll": {}
         }
       },
+      "MoneySharp/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.1",
+        "dependencies": {
+          "MoneySharp.Contract": "1.0.0",
+          "RestSharp": "105.2.3"
+        },
+        "compile": {
+          "netstandard1.1/MoneySharp.dll": {}
+        },
+        "runtime": {
+          "netstandard1.1/MoneySharp.dll": {}
+        }
+      },
       "MoneySharp.Contract/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
-          "System": "4.0.0"
+          "System": "1.0.0"
         },
         "compile": {
           "netstandard1.1/MoneySharp.Contract.dll": {}
@@ -114,16 +128,21 @@
         "lib/net451/SXN.Core.xml"
       ]
     },
+    "MoneySharp/1.0.0": {
+      "type": "project",
+      "path": "../../src/MoneySharp/project.json",
+      "msbuildProject": "../../src/MoneySharp/MoneySharp.xproj"
+    },
     "MoneySharp.Contract/1.0.0": {
       "type": "project",
-      "path": "../MoneySharp.Contract/project.json",
-      "msbuildProject": "../MoneySharp.Contract/MoneySharp.Contract.xproj"
+      "path": "../../src/MoneySharp.Contract/project.json",
+      "msbuildProject": "../../src/MoneySharp.Contract/MoneySharp.Contract.xproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
-      "MoneySharp.Contract >= 1.0.0-*",
-      "RestSharp >= 105.2.3"
+      "MoneySharp >= 1.0.0-*",
+      "MoneySharp.Contract >= 1.0.0-*"
     ],
     ".NETStandard,Version=v1.1": []
   },

@@ -2,10 +2,13 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "System":  "*" 
   },
 
   "frameworks": {
-    "net451": {},
-    "net46": {}
+    "netstandard1.1": {
+      "imports": "net451"
+    }
+   
   }
 }
