@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SimpleInjector;
 
-namespace MoneySharp.Test.NET45.Container_Integrations
+namespace MoneySharp.Test.Container_Integrations
 {
     [TestFixture]
     public class SimpleInjectorContainerTest
