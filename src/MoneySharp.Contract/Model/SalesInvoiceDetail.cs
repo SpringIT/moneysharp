@@ -4,9 +4,9 @@
     {
         public string Description { get; set; }
         public string Amount { get; set; }
-        public string Tax { get; set; }
+        public string TaxRateId { get; set; }
         public decimal Price { get; set; }
-        public long LedgerId { get; set; }
+        public long LedgerAccountId { get; set; }
         public string Period { get; set; }
         public int RowOrder { get; set; }
     }

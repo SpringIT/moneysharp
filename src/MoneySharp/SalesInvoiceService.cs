@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MoneySharp.Contract;
 using MoneySharp.Internal;
 using MoneySharp.Internal.Mapping;
 using MoneySharp.Internal.Model;
@@ -7,7 +8,7 @@ using MoneySharp.Internal.Model.Wrapper;
 
 namespace MoneySharp
 {
-    public class SalesInvoiceService
+    public class SalesInvoiceService : ISalesInvoiceService
     {
         private readonly IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper> _salesInvoiceConnector;
         private readonly IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost> _salesInvoiceMapper;
@@ -22,7 +23,7 @@ namespace MoneySharp
         /// Get all sales invoices from moneybird. Limit is 100 invoices
         /// </summary>
         /// <returns></returns>
-        public IList<Contract.Model.SalesInvoice> GetAllSalesInvoices()
+        public IList<Contract.Model.SalesInvoice> Get()
         {
             var salesInvoices = _salesInvoiceConnector.GetList();
             return salesInvoices.Select(_salesInvoiceMapper.MapToContract).ToList();
@@ -33,7 +34,7 @@ namespace MoneySharp
         /// </summary>
         /// <param name="id">Id of sales invoice</param>
         /// <returns></returns>
-        public Contract.Model.SalesInvoice GetSalesInvoiceById(long id)
+        public Contract.Model.SalesInvoice GetById(long id)
         {
             var salesInvoice = _salesInvoiceConnector.GetById(id);
             return _salesInvoiceMapper.MapToContract(salesInvoice);
@@ -44,7 +45,7 @@ namespace MoneySharp
         /// </summary>
         /// <param name="salesInvoice">Invoice to create</param>
         /// <returns></returns>
-        public Contract.Model.SalesInvoice CreateSalesInvoice(Contract.Model.SalesInvoice salesInvoice)
+        public Contract.Model.SalesInvoice Create(Contract.Model.SalesInvoice salesInvoice)
         {
             var salesInvoicePost = _salesInvoiceMapper.MapToApi(salesInvoice, null);
             var wrappedSalesInvoice = new SalesInvoiceWrapper(salesInvoicePost);
@@ -58,7 +59,7 @@ namespace MoneySharp
         /// <param name="id">Id of sales invoice</param>
         /// <param name="salesInvoice">Sales invoice to update</param>
         /// <returns></returns>
-        public Contract.Model.SalesInvoice UpdateSalesInvoice(long id, Contract.Model.SalesInvoice salesInvoice)
+        public Contract.Model.SalesInvoice Update(long id, Contract.Model.SalesInvoice salesInvoice)
         {
             var currentSalesInvoice = _salesInvoiceConnector.GetById(id);
             var salesInvoicePost = _salesInvoiceMapper.MapToApi(salesInvoice, currentSalesInvoice);
@@ -71,7 +72,7 @@ namespace MoneySharp
         /// Delete invoice from moneybird
         /// </summary>
         /// <param name="id">Id of sales invoice</param>
-        public void DeleteSalesInvoice(long id)
+        public void Delete(long id)
         {
             _salesInvoiceConnector.Delete(id);
         }

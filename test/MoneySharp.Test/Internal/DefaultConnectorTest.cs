@@ -43,7 +43,7 @@ namespace MoneySharp.Test.Internal
         {
             var expectedResult = new List<GetObject>() {new GetObject()};
 
-            var response = new MockRestResponse<List<GetObject>>()
+            var response = new RestResponse<List<GetObject>>()
             {
                 Data = expectedResult
             };
@@ -64,7 +64,7 @@ namespace MoneySharp.Test.Internal
             var expectedResult = new GetObject();
             long inputId = 1234;
 
-            var response = new MockRestResponse<GetObject>
+            var response = new RestResponse<GetObject>
             {
                 Data = expectedResult
             };
@@ -84,7 +84,7 @@ namespace MoneySharp.Test.Internal
         {
             var postObject = new PostObject();
             var expectedResult = new GetObject();
-            var response = new MockRestResponse<GetObject>
+            var response = new RestResponse<GetObject>
             {
                 Data = expectedResult
             };
@@ -105,7 +105,7 @@ namespace MoneySharp.Test.Internal
             long inputId = 1234;
             var postObject = new PostObject();
             var expectedResult = new GetObject();
-            var response = new MockRestResponse<GetObject>
+            var response = new RestResponse<GetObject>
             {
                 Data = expectedResult
             };
@@ -124,7 +124,7 @@ namespace MoneySharp.Test.Internal
         public void Delete_Calls_RequestHelpderAndClient()
         {
             long inputId = 1234;
-            var response = new MockRestResponse();
+            var response = new RestResponse();
 
             _requestHelper.Setup(c => c.BuildRequest($"{_urlAppend}/{inputId}", Method.DELETE, null))
                 .Returns(_restRequest.Object);
