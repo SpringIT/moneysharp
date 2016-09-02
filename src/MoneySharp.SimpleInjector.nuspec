@@ -14,7 +14,8 @@
     <copyright></copyright>
     <tags>moneybird, moneybird api, moneysharp, api, simpleinjector</tags>
     <dependencies>
-      <dependency id="MoneySharp" version="$version$" />
+      <dependency id="MoneySharp" version="[$version$]" />
+      <dependency id="SimpleInjector" version="3.2.2" />
     </dependencies>
   </metadata>
  
