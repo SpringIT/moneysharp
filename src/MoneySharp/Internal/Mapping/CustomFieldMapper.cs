@@ -4,14 +4,14 @@ namespace MoneySharp.Internal.Mapping
 {
     public class CustomFieldMapper : IMapper<Contract.Model.CustomField, CustomField, CustomField>
     {
-        public Contract.Model.CustomField MapToContract(CustomField arg)
+        public Contract.Model.CustomField MapToContract(CustomField input)
         {
-            return new Contract.Model.CustomField() {Value = arg.value, Id = arg.id};
+            return new Contract.Model.CustomField() {Value = input.value, Id = input.id};
         }
 
-        public CustomField MapToApi(Contract.Model.CustomField contract, CustomField apiGet)
+        public CustomField MapToApi(Contract.Model.CustomField data, CustomField apiGet)
         {
-            return new CustomField() {id = contract.Id, value = contract.Value};
+            return new CustomField() {id = data.Id, value = data.Value};
         }
     }
 }

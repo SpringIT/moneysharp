@@ -4,8 +4,8 @@
     {
         public long id { get; set; }
         public long contact_id { get; set; }
-        public string document_style_id { get; set; }
-        public string workflow_id { get; set; }
+        public long document_style_id { get; set; }
+        public long workflow_id { get; set; }
         public bool prices_are_incl_tax { get; set; }
         public string invoice_date { get; set; }
         public string due_date { get; set; }

@@ -4,59 +4,60 @@ namespace MoneySharp.Internal.Mapping
 {
     public class ContactMapper : IMapper<Contract.Model.Contact, Contact, Contact>
     {
-        public Contract.Model.Contact MapToContract(Contact contact)
+        public Contract.Model.Contact MapToContract(Contact input)
         {
             var map = new Contract.Model.Contact
             {
-                Firstname = contact.firstname,
-                Lastname = contact.lastname,
-                Company = contact.company_name,
-                Email = contact.email,
-                Id = contact.id
+                Firstname = input.firstname,
+                Lastname = input.lastname,
+                Company = input.company_name,
+                Email = input.email,
+                Id = input.id
             };
 
-            if (!string.IsNullOrEmpty(contact.address1) || !string.IsNullOrEmpty(contact.city) ||
-                !string.IsNullOrEmpty(contact.zipcode) || !string.IsNullOrEmpty(contact.country))
+            if (!string.IsNullOrEmpty(input.address1) || !string.IsNullOrEmpty(input.city) ||
+                !string.IsNullOrEmpty(input.zipcode) || !string.IsNullOrEmpty(input.country))
             {
                 map.Address = new Contract.Model.Address
                 {
-                    AddressLine = contact.address1,
-                    Country = contact.country,
-                    Place = contact.city,
-                    PostalCode = contact.zipcode
+                    AddressLine = input.address1,
+                    Country = input.country,
+                    Place = input.city,
+                    PostalCode = input.zipcode
                 };
             }
 
-            if (contact.sepa_active)
+            if (input.sepa_active)
             {
                 map.Mandate = new Contract.Model.Mandate
                 {
-                    AccountName = contact.sepa_iban_account_name,
-                    Bic = contact.sepa_bic,
-                    Iban = contact.sepa_iban,
-                    Mandatecode = contact.sepa_mandate_id,
-                    SequenceType = contact.sepa_sequence_type,
-                    SignedMandate = contact.sepa_mandate_date
+                    AccountName = input.sepa_iban_account_name,
+                    Bic = input.sepa_bic,
+                    Iban = input.sepa_iban,
+                    Mandatecode = input.sepa_mandate_id,
+                    SequenceType = input.sepa_sequence_type,
+                    SignedMandate = input.sepa_mandate_date
                 };
             }
 
             return map;
         }
 
-        public Contact MapToApi(Contract.Model.Contact contact, Contact current)
+        public Contact MapToApi(Contract.Model.Contact data, Contact current)
         {
             if(current == null) current = new Contact();
-            current.firstname = contact.Firstname;
-            current.lastname = contact.Lastname;
-            current.company_name = contact.Company;
-            current.email = contact.Email;
+            current.id = data.Id;
+            current.firstname = data.Firstname;
+            current.lastname = data.Lastname;
+            current.company_name = data.Company;
+            current.email = data.Email;
 
-            if (contact.Address != null)
+            if (data.Address != null)
             {
-                current.address1 = contact.Address.AddressLine;
-                current.country = contact.Address.Country;
-                current.city = contact.Address.Place;
-                current.zipcode = contact.Address.PostalCode;
+                current.address1 = data.Address.AddressLine;
+                current.country = data.Address.Country;
+                current.city = data.Address.Place;
+                current.zipcode = data.Address.PostalCode;
             }
             else
             {
@@ -66,17 +67,19 @@ namespace MoneySharp.Internal.Mapping
                 current.zipcode = null;
             }
 
-            if (contact.Mandate != null)
+            if (data.Mandate != null)
             {
-                current.sepa_iban_account_name = contact.Mandate.AccountName;
-                current.sepa_bic = contact.Mandate.Bic;
-                current.sepa_iban = contact.Mandate.Iban;
-                current.sepa_mandate_id = contact.Mandate.Mandatecode;
-                current.sepa_sequence_type = contact.Mandate.SequenceType;
-                current.sepa_mandate_date =contact.Mandate.SignedMandate;
+                current.sepa_active = true;
+                current.sepa_iban_account_name = data.Mandate.AccountName;
+                current.sepa_bic = data.Mandate.Bic;
+                current.sepa_iban = data.Mandate.Iban;
+                current.sepa_mandate_id = data.Mandate.Mandatecode;
+                current.sepa_sequence_type = data.Mandate.SequenceType;
+                current.sepa_mandate_date =data.Mandate.SignedMandate;
             }
             else
             {
+                current.sepa_active = false;
                 current.sepa_iban_account_name = null;
                 current.sepa_bic = null;
                 current.sepa_iban = null;

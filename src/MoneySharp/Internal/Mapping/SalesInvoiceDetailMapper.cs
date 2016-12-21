@@ -4,33 +4,33 @@ namespace MoneySharp.Internal.Mapping
 {
     public class SalesInvoiceDetailMapper : IMapper<Contract.Model.SalesInvoiceDetail, SalesInvoiceDetail, SalesInvoiceDetail>
     {
-        public Contract.Model.SalesInvoiceDetail MapToContract(SalesInvoiceDetail arg)
+        public Contract.Model.SalesInvoiceDetail MapToContract(SalesInvoiceDetail input)
         {
             return new Contract.Model.SalesInvoiceDetail
             {
-                Amount = arg.amount,
-                Description = arg.description,
-                LedgerAccountId = arg.ledger_account_id,
-                Period = arg.period,
-                Price = arg.price,
-                RowOrder = arg.row_order,
-                TaxRateId = arg.tax_rate_id,
-                ProductId = arg.product_id
+                Amount = input.amount,
+                Description = input.description,
+                LedgerAccountId = input.ledger_account_id,
+                Period = input.period,
+                Price = input.price,
+                RowOrder = input.row_order,
+                TaxRateId = input.tax_rate_id,
+                ProductId = input.product_id
             };
         }
 
-        public SalesInvoiceDetail MapToApi(Contract.Model.SalesInvoiceDetail arg, SalesInvoiceDetail apiGet)
+        public SalesInvoiceDetail MapToApi(Contract.Model.SalesInvoiceDetail data, SalesInvoiceDetail apiGet)
         {
             return new SalesInvoiceDetail
             {
-                amount = arg.Amount,
-                description = arg.Description,
-                ledger_account_id = arg.LedgerAccountId,
-                period = arg.Period,
-                price = arg.Price,
-                row_order = arg.RowOrder,
-                tax_rate_id = arg.TaxRateId,
-                product_id = arg.ProductId
+                amount = data.Amount,
+                description = data.Description,
+                ledger_account_id = data.LedgerAccountId,
+                period = data.Period,
+                price = data.Price,
+                row_order = data.RowOrder,
+                tax_rate_id = data.TaxRateId,
+                product_id = data.ProductId
             };
         }
     }

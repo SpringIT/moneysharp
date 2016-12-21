@@ -7,8 +7,8 @@ namespace MoneySharp.Contract.Model
     {
         public long Id { get; set; }
         public long ContactId { get; set; }
-        public string DocumentStyleId { get; set; }
-        public string WorkflowId { get; set; }
+        public long DocumentStyleId { get; set; }
+        public long WorkflowId { get; set; }
         public bool PriceAreIncludedTax { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? LastDate { get; set; }

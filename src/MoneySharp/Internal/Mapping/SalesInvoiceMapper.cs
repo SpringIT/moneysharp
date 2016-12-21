@@ -20,69 +20,57 @@ namespace MoneySharp.Internal.Mapping
             _customFieldMapper = customFieldMapper;
         }
 
-        public Contract.Model.SalesInvoice MapToContract(SalesInvoiceGet salesInvoice)
+        public Contract.Model.SalesInvoice MapToContract(SalesInvoiceGet input)
         {
             var mapToContract = new Contract.Model.SalesInvoice
             {
-                Url = salesInvoice.url,
-                ContactId = salesInvoice.contact_id,
-                CustomFields = salesInvoice.custom_fields.Select(_customFieldMapper.MapToContract).ToList(),
-                Details = salesInvoice.details.Select(_salesInvoiceDetailMapper.MapToContract).ToList(),
-                InvoiceId = salesInvoice.invoice_id
+                Url = input.url,
+                ContactId = input.contact_id,
+                CustomFields =
+                    input.custom_fields != null
+                        ? input.custom_fields.Select(_customFieldMapper.MapToContract).ToList()
+                        : new List<Contract.Model.CustomField>(),
+                Details =
+                    input.details != null
+                        ? input.details.Select(_salesInvoiceDetailMapper.MapToContract).ToList()
+                        : new List<Contract.Model.SalesInvoiceDetail>(),
+                InvoiceId = input.invoice_id
             };
 
-            mapToContract.ContactId = salesInvoice.contact_id;
-            mapToContract.DocumentStyleId = salesInvoice.document_style_id;
-            mapToContract.WorkflowId = salesInvoice.workflow_id;
-            mapToContract.DueDate = DateTime.Parse(salesInvoice.due_date, CultureInfo.InvariantCulture);
-            mapToContract.InvoiceDate = DateTime.Parse(salesInvoice.invoice_date, CultureInfo.InvariantCulture);
-            mapToContract.PriceAreIncludedTax = salesInvoice.prices_are_incl_tax;
-            mapToContract.TotalTax = salesInvoice.total_tax;
-            mapToContract.TotalPriceIncludingTax = salesInvoice.total_price_incl_tax;
-            mapToContract.TotalPriceExcludingTax = salesInvoice.total_price_excl_tax;
-            mapToContract.Id = salesInvoice.id;
-            mapToContract.Url = salesInvoice.url;
-            mapToContract.State = GetContractState(salesInvoice.state);
+            mapToContract.ContactId = input.contact_id;
+            mapToContract.DocumentStyleId = input.document_style_id;
+            mapToContract.WorkflowId = input.workflow_id;
+            mapToContract.DueDate = !string.IsNullOrEmpty(input.due_date) ? (DateTime?)DateTime.Parse(input.due_date, CultureInfo.InvariantCulture) : null;
+            mapToContract.InvoiceDate = !string.IsNullOrEmpty(input.invoice_date) ? (DateTime?)DateTime.Parse(input.invoice_date, CultureInfo.InvariantCulture) : null;
+            mapToContract.PriceAreIncludedTax = input.prices_are_incl_tax;
+            mapToContract.TotalTax = input.total_tax;
+            mapToContract.TotalPriceIncludingTax = input.total_price_incl_tax;
+            mapToContract.TotalPriceExcludingTax = input.total_price_excl_tax;
+            mapToContract.Id = input.id;
+            mapToContract.Url = input.url;
+            mapToContract.State = GetContractState(input.state);
 
             return mapToContract;
         }
 
-        public SalesInvoicePost MapToApi(Contract.Model.SalesInvoice  salesInvoice, SalesInvoiceGet current)
+        public SalesInvoicePost MapToApi(Contract.Model.SalesInvoice data, SalesInvoiceGet current)
         {
             var returnValue = new SalesInvoicePost();
-            if (current != null)
-            {
-                SetCustomFields(current, returnValue);
-                returnValue.details_attributes = current.details;
-                returnValue.contact_id = current.contact_id;
-                returnValue.document_style_id = current.document_style_id;
-                returnValue.due_date = current.due_date;
-                returnValue.id = current.id;
-                returnValue.invoice_date = current.invoice_date;
-                returnValue.invoice_id = current.invoice_id;
-                returnValue.prices_are_incl_tax = current.prices_are_incl_tax;
-                returnValue.total_price_excl_tax = current.total_price_excl_tax;
-                returnValue.total_price_incl_tax = current.total_price_incl_tax;
-                returnValue.state = current.state;
-                returnValue.total_tax = current.total_tax;
-                returnValue.workflow_id = current.workflow_id;
-            }
 
-
-            SetCustomFields(salesInvoice, returnValue);
-            returnValue.details_attributes = salesInvoice.Details?.Select(c=> _salesInvoiceDetailMapper.MapToApi(c, null)).ToList() ?? new List<SalesInvoiceDetail>();
-            returnValue.invoice_id = salesInvoice.InvoiceId;
-            returnValue.id = salesInvoice.Id;
-            returnValue.state = GetApiState(salesInvoice.State);
-            returnValue.total_price_excl_tax = salesInvoice.TotalPriceExcludingTax;
-            returnValue.total_price_incl_tax = salesInvoice.TotalPriceIncludingTax;
-            returnValue.total_tax = salesInvoice.TotalTax;
-            returnValue.workflow_id = salesInvoice.WorkflowId;
-            returnValue.contact_id = salesInvoice.ContactId;
-            returnValue.document_style_id = salesInvoice.DocumentStyleId;
-            returnValue.due_date = salesInvoice.DueDate?.ToString("yyyy-MM-dd");
-            returnValue.invoice_date = salesInvoice.InvoiceDate?.ToString("yyyy-MM-dd");
-            returnValue.prices_are_incl_tax = salesInvoice.PriceAreIncludedTax;
+            SetCustomFields(data, returnValue);
+            returnValue.details_attributes = data.Details?.Select(c => _salesInvoiceDetailMapper.MapToApi(c, null)).ToList() ?? new List<SalesInvoiceDetail>();
+            returnValue.invoice_id = data.InvoiceId;
+            returnValue.id = data.Id;
+            returnValue.state = GetApiState(data.State);
+            returnValue.total_price_excl_tax = data.TotalPriceExcludingTax;
+            returnValue.total_price_incl_tax = data.TotalPriceIncludingTax;
+            returnValue.total_tax = data.TotalTax;
+            returnValue.workflow_id = data.WorkflowId;
+            returnValue.contact_id = data.ContactId;
+            returnValue.document_style_id = data.DocumentStyleId;
+            returnValue.due_date = data.DueDate?.ToString("yyyy-MM-dd");
+            returnValue.invoice_date = data.InvoiceDate?.ToString("yyyy-MM-dd");
+            returnValue.prices_are_incl_tax = data.PriceAreIncludedTax;
             return returnValue;
         }
 

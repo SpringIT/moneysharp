@@ -2,7 +2,7 @@
 {
     public interface IMapper<TContract, in TApiGet, out TApiPost>
     {
-        TContract MapToContract(TApiGet apiGet);
-        TApiPost MapToApi(TContract contract, TApiGet apiGet);
+        TContract MapToContract(TApiGet input);
+        TApiPost MapToApi(TContract data, TApiGet current);
     }
 }
