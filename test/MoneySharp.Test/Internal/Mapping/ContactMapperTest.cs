@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using MoneySharp.Contract.Model;
 using MoneySharp.Internal.Mapping;
 using Moq.AutoMock;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using Contact = MoneySharp.Internal.Model.Contact;
 
 namespace MoneySharp.Test.Internal.Mapping

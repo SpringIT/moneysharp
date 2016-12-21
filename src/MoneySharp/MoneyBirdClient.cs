@@ -1,10 +1,4 @@
 ﻿using MoneySharp.Contract;
-using MoneySharp.Contract.Settings;
-using MoneySharp.Internal;
-using MoneySharp.Internal.Helper;
-using MoneySharp.Internal.Mapping;
-using MoneySharp.Internal.Model;
-using MoneySharp.Internal.Model.Wrapper;
 
 namespace MoneySharp
 {
@@ -16,8 +10,6 @@ namespace MoneySharp
 
         public MoneyBirdClient(IContactService contactService, ISalesInvoiceService salesInvoiceService, IRecurringSalesInvoiceService recurringSalesInvoiceService)
         {
-            var requestHelper = new RequestHelper();
-
             _contactService = contactService;
             _salesInvoiceService = salesInvoiceService;
             _recurringSalesInvoiceService = recurringSalesInvoiceService;
