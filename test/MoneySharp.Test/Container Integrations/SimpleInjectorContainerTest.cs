@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using MoneySharp.SimpleInjector;
+using NUnit.Framework;
 using SimpleInjector;
 
 namespace MoneySharp.Test.Container_Integrations

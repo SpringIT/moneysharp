@@ -7,7 +7,7 @@ using MoneySharp.Internal.Model;
 using MoneySharp.Internal.Model.Wrapper;
 using SimpleInjector;
 
-namespace MoneySharp
+namespace MoneySharp.SimpleInjector
 {
     public static class SimpleInjectorExtension
     {
