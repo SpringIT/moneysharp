@@ -17,6 +17,10 @@ Install-Package MoneySharp
 
 We will provide documentation in the wiki
 
+## Pull Request
+
+We are more then happy to accept pull request. 
+
 ## License
 
 See Apache License Version 2.0,
