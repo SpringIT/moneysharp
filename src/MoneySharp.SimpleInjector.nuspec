@@ -22,6 +22,8 @@
   <files>
 	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.dll" target="lib\netstandard1.1\"/>
 	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.pdb" target="lib\netstandard1.1\" />
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.dll" target="lib\net45\"/>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.pdb" target="lib\net45\" />
   </files>
   
 </package>

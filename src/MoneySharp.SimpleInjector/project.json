@@ -13,6 +13,9 @@
   "frameworks": {
     "netstandard1.1": {
       "imports": "net451"
-    }
+    },
+    "net45": {
+
+    } 
   }
 }

@@ -22,5 +22,9 @@
 	<file src="MoneySharp\bin\$configuration$\netstandard1.1\MoneySharp.pdb" target="lib\netstandard1.1\" />
 	<file src="MoneySharp.Contract\bin\$configuration$\netstandard1.1\MoneySharp.Contract.dll" target="lib\netstandard1.1\"/>
 	<file src="MoneySharp.Contract\bin\$configuration$\netstandard1.1\MoneySharp.Contract.pdb" target="lib\netstandard1.1\" />
+	<file src="MoneySharp\bin\$configuration$\net45\MoneySharp.dll" target="lib\net45\"/>
+	<file src="MoneySharp\bin\$configuration$\net45\MoneySharp.pdb" target="lib\net45\" />
+	<file src="MoneySharp.Contract\bin\$configuration$\net45\MoneySharp.Contract.dll" target="lib\net45\"/>
+	<file src="MoneySharp.Contract\bin\$configuration$\net45\MoneySharp.Contract.pdb" target="lib\net45\" />
   </files>
 </package>
