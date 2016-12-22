@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using MoneySharp.Contract.Model;
 using MoneySharp.Internal.Mapping;
 using MoneySharp.Internal.Model;
 using Moq;
 using Moq.AutoMock;
 using NUnit.Framework;
+using CustomField = MoneySharp.Internal.Model.CustomField;
+using SalesInvoiceDetail = MoneySharp.Internal.Model.SalesInvoiceDetail;
 
 namespace MoneySharp.Test.Internal.Mapping
 {
@@ -38,7 +41,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var customField2 = new CustomField() { id = 123457, value = "test2" };
             var salesInvoice = new RecurringSalesInvoiceGet()
             {
-                state = "draft",
+                frequency_type = "day",
                 custom_fields = new List<CustomField>()
                 {
                     customField1,
@@ -62,7 +65,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var salesInvoiceDetail2 = new SalesInvoiceDetail() { };
             var salesInvoice = new RecurringSalesInvoiceGet()
             {
-                state = "draft",
+                frequency_type = "day",
                 details = new List<SalesInvoiceDetail>()
                 {
                     salesInvoiceDetail1,
@@ -89,7 +92,6 @@ namespace MoneySharp.Test.Internal.Mapping
 
             var salesInvoice = new RecurringSalesInvoiceGet()
             {
-                state = "draft",
                 contact_id = 123,
                 document_style_id = 12345,
                 workflow_id = 12346,
@@ -100,7 +102,8 @@ namespace MoneySharp.Test.Internal.Mapping
                 prices_are_incl_tax = true,
                 total_price_excl_tax =132,
                 total_price_incl_tax = 190,
-                total_tax = 58
+                total_tax = 58,
+                frequency_type = "day",
             };
 
             var result = _mapper.MapToContract(salesInvoice);
@@ -118,6 +121,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 TotalPriceExcludingTax = salesInvoice.total_price_excl_tax,
                 TotalPriceIncludingTax = salesInvoice.total_price_incl_tax,
                 TotalTax = salesInvoice.total_tax,
+                FrequencyType = FrequencyType.Day
             };
 
             result.ShouldBeEquivalentTo(expectedResult,
@@ -135,6 +139,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var customField2 = new Contract.Model.CustomField() { Id = 123457, Value = "test2" };
             var salesInvoice = new Contract.Model.RecurringSalesInvoice()
             {
+                FrequencyType = FrequencyType.Day,
                 CustomFields = new List<Contract.Model.CustomField>()
                 {
                     customField1,
@@ -158,6 +163,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var salesInvoiceDetail2 = new Contract.Model.SalesInvoiceDetail() { };
             var salesInvoice = new Contract.Model.RecurringSalesInvoice()
             {
+                FrequencyType = FrequencyType.Day,
                 Details = new List<Contract.Model.SalesInvoiceDetail>()
                 {
                     salesInvoiceDetail1,
@@ -195,13 +201,14 @@ namespace MoneySharp.Test.Internal.Mapping
                 TotalPriceExcludingTax = 123,
                 TotalPriceIncludingTax = 150,
                 TotalTax = 27,
+                FrequencyType = FrequencyType.Day,
+                Frequency = 1,
             };
 
             var result = _mapper.MapToApi(salesInvoice, current);
 
             var expectedResult = new RecurringSalesInvoicePost()
             {
-                state = "draft",
                 contact_id = salesInvoice.ContactId,
                 document_style_id = salesInvoice.DocumentStyleId,
                 workflow_id = salesInvoice.WorkflowId,
@@ -212,8 +219,9 @@ namespace MoneySharp.Test.Internal.Mapping
                 prices_are_incl_tax = salesInvoice.PriceAreIncludedTax,
                 total_price_excl_tax = salesInvoice.TotalPriceExcludingTax,
                 total_price_incl_tax = salesInvoice.TotalPriceIncludingTax,
-                total_tax = salesInvoice.TotalTax
-
+                total_tax = salesInvoice.TotalTax,
+                frequency_type = "day",
+                frequency = salesInvoice.Frequency
             };
 
             result.ShouldBeEquivalentTo(expectedResult,

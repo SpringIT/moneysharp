@@ -25,16 +25,16 @@ namespace MoneySharp.Internal.Mapping
             var mapToContract = new Contract.Model.RecurringSalesInvoice
             {
                 ContactId = input.contact_id,
-                CustomFields = input.custom_fields.Select(_customFieldMapper.MapToContract).ToList(),
-                Details = input.details.Select(_salesInvoiceDetailMapper.MapToContract).ToList(),
+                CustomFields = input.custom_fields != null ? input.custom_fields.Select(_customFieldMapper.MapToContract).ToList() : new List<Contract.Model.CustomField>(),
+                Details = input.details != null ? input.details.Select(_salesInvoiceDetailMapper.MapToContract).ToList(): new List<Contract.Model.SalesInvoiceDetail>(),
                 InvoiceId = input.invoice_id
             };
 
             mapToContract.ContactId = input.contact_id;
             mapToContract.DocumentStyleId = input.document_style_id;
             mapToContract.WorkflowId = input.workflow_id;
-            mapToContract.DueDate = DateTime.Parse(input.due_date, CultureInfo.InvariantCulture);
-            mapToContract.InvoiceDate = DateTime.Parse(input.invoice_date, CultureInfo.InvariantCulture);
+            mapToContract.DueDate = !string.IsNullOrEmpty(input.due_date) ? (DateTime?)DateTime.Parse(input.due_date, CultureInfo.InvariantCulture) : null;
+            mapToContract.InvoiceDate = !string.IsNullOrEmpty(input.invoice_date) ? (DateTime?)DateTime.Parse(input.invoice_date, CultureInfo.InvariantCulture) : null;
             mapToContract.PriceAreIncludedTax = input.prices_are_incl_tax;
             mapToContract.TotalTax = input.total_tax;
             mapToContract.TotalPriceIncludingTax = input.total_price_incl_tax;
