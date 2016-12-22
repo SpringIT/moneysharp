@@ -13,7 +13,9 @@
     <releaseNotes>-</releaseNotes>
     <copyright></copyright>
     <tags>moneybird, moneybird api, moneysharp, api</tags>
-    <dependencies></dependencies>
+    <dependencies>
+		<dependency id="RestSharp" version="105.2.3" />
+	</dependencies>
   </metadata>
   <files>
 	<file src="MoneySharp\bin\$configuration$\netstandard1.1\MoneySharp.dll" target="lib\netstandard1.1\"/>
