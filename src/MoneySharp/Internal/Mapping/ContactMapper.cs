@@ -11,6 +11,8 @@ namespace MoneySharp.Internal.Mapping
                 Firstname = input.firstname,
                 Lastname = input.lastname,
                 Company = input.company_name,
+                ChamberOfCommerce = input.chamber_of_commerce,
+                TaxNumber = input.tax_number,
                 Email = input.email,
                 Id = input.id
             };
@@ -50,6 +52,8 @@ namespace MoneySharp.Internal.Mapping
             current.firstname = data.Firstname;
             current.lastname = data.Lastname;
             current.company_name = data.Company;
+            current.chamber_of_commerce = data.ChamberOfCommerce;
+            current.tax_number = data.TaxNumber;
             current.email = data.Email;
 
             if (data.Address != null)
