@@ -1,0 +1,42 @@
+﻿using System.Collections.Generic;
+using MoneySharp.Contract.Model;
+
+namespace MoneySharp.Contract
+{
+    public interface ISalesInvoiceService
+    {
+        /// <summary>
+        /// Get all sales invoices from moneybird. Limit is 100 invoices
+        /// </summary>
+        /// <returns></returns>
+        IList<SalesInvoice> Get();
+
+        /// <summary>
+        /// Gets single sales invoice
+        /// </summary>
+        /// <param name="id">Id of sales invoice</param>
+        /// <returns></returns>
+        SalesInvoice GetById(long id);
+
+        /// <summary>
+        /// Create new sales invoice in moneybird
+        /// </summary>
+        /// <param name="salesInvoice">Invoice to create</param>
+        /// <returns></returns>
+        SalesInvoice Create(SalesInvoice salesInvoice);
+
+        /// <summary>
+        /// Updates sales invoice in momenybird
+        /// </summary>
+        /// <param name="id">Id of sales invoice</param>
+        /// <param name="salesInvoice">Sales invoice to update</param>
+        /// <returns></returns>
+        SalesInvoice Update(long id, SalesInvoice salesInvoice);
+
+        /// <summary>
+        /// Delete invoice from moneybird
+        /// </summary>
+        /// <param name="id">Id of sales invoice</param>
+        void Delete(long id);
+    }
+}

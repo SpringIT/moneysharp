@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MoneySharp</id>
+    <version>$version$</version>
+    <title>MoneySharp</title>
+    <authors>Spring IT</authors>
+    <owners>Spring IT Solutions B.V.</owners>
+    <projectUrl>https://github.com/SpringIT/MoneySharp</projectUrl>
+	<licenseUrl>https://github.com/SpringIT/MoneySharp/blob/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A C# implentation of the Moneybird API V2.</description>
+    <releaseNotes>-</releaseNotes>
+    <copyright></copyright>
+    <tags>moneybird, moneybird api, moneysharp, api</tags>
+    <dependencies>
+		<dependency id="RestSharp" version="105.2.3" />
+	</dependencies>
+  </metadata>
+  <files>
+	<file src="MoneySharp\bin\$configuration$\netstandard1.1\MoneySharp.dll" target="lib\netstandard1.1\"/>
+	<file src="MoneySharp\bin\$configuration$\netstandard1.1\MoneySharp.pdb" target="lib\netstandard1.1\" />
+	<file src="MoneySharp.Contract\bin\$configuration$\netstandard1.1\MoneySharp.Contract.dll" target="lib\netstandard1.1\"/>
+	<file src="MoneySharp.Contract\bin\$configuration$\netstandard1.1\MoneySharp.Contract.pdb" target="lib\netstandard1.1\" />
+	<file src="MoneySharp\bin\$configuration$\net45\MoneySharp.dll" target="lib\net45\"/>
+	<file src="MoneySharp\bin\$configuration$\net45\MoneySharp.pdb" target="lib\net45\" />
+	<file src="MoneySharp.Contract\bin\$configuration$\net45\MoneySharp.Contract.dll" target="lib\net45\"/>
+	<file src="MoneySharp.Contract\bin\$configuration$\net45\MoneySharp.Contract.pdb" target="lib\net45\" />
+	<file src="MoneySharp\bin\$configuration$\net40\MoneySharp.dll" target="lib\net40\"/>
+	<file src="MoneySharp\bin\$configuration$\net40\MoneySharp.pdb" target="lib\net40\" />
+	<file src="MoneySharp.Contract\bin\$configuration$\net40\MoneySharp.Contract.dll" target="lib\net40\"/>
+	<file src="MoneySharp.Contract\bin\$configuration$\net40\MoneySharp.Contract.pdb" target="lib\net40\" />
+  </files>
+</package>

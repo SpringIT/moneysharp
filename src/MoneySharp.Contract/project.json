@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+  "title": "MoneySharp.Contracts",
+  "description": "A C# API implementation for MoneyBird",
+  "copyright": "Spring IT Solutions B.V.",
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.1": {
+      "imports": "net451"
+    },
+    "net45": {
+
+    },
+    "net4": {
+
+    }
+  }
+  
+}

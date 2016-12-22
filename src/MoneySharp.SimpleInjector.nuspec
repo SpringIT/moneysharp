@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>MoneySharp.SimpleInjector</id>
+    <version>$version$</version>
+    <title>MoneySharp.SimpleInjector</title>
+    <authors>Spring IT</authors>
+    <owners>Spring IT Solutions B.V.</owners>
+    <projectUrl>https://github.com/SpringIT/MoneySharp</projectUrl>
+	<licenseUrl>https://github.com/SpringIT/MoneySharp/blob/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SimpleInjector integration A C# implentation of the Moneybird API V2.</description>
+    <releaseNotes>-</releaseNotes>
+    <copyright></copyright>
+    <tags>moneybird, moneybird api, moneysharp, api, simpleinjector</tags>
+    <dependencies>
+      <dependency id="MoneySharp" version="[$version$]" />
+      <dependency id="SimpleInjector" version="3.2.2" />
+    </dependencies>
+  </metadata>
+ 
+  <files>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.dll" target="lib\netstandard1.1\"/>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.pdb" target="lib\netstandard1.1\" />
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.dll" target="lib\net45\"/>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.pdb" target="lib\net45\" />
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net40\MoneySharp.SimpleInjector.dll" target="lib\net40\"/>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net40\MoneySharp.SimpleInjector.pdb" target="lib\net40\" />
+  </files>
+  
+</package>
