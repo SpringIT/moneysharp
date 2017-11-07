@@ -124,7 +124,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 FrequencyType = FrequencyType.Day
             };
 
-            result.ShouldBeEquivalentTo(expectedResult,
+            result.Should().BeEquivalentTo(expectedResult,
                 opt => opt
                     .Excluding(p => p.Details)
                     .Excluding(p => p.CustomFields));
@@ -224,7 +224,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 frequency = salesInvoice.Frequency
             };
 
-            result.ShouldBeEquivalentTo(expectedResult,
+            result.Should().BeEquivalentTo(expectedResult,
                 opt => opt
                     .Excluding(p => p.details_attributes)
                     .Excluding(p => p.custom_fields_attributes));

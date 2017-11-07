@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using MoneySharp.Internal.Model;
-using RestSharp;
+using SimpleJson;
 
 namespace MoneySharp.Internal.Mapping
 {

@@ -55,7 +55,7 @@ namespace MoneySharp.Test.Internal
             var result = _connector.GetList();
 
             _requestHelper.Verify(c => c.CheckResult(response));
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace MoneySharp.Test.Internal
             var result = _connector.GetById(inputId);
 
             _requestHelper.Verify(c => c.CheckResult(response));
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
@@ -96,7 +96,7 @@ namespace MoneySharp.Test.Internal
             var result = _connector.Create(postObject);
 
             _requestHelper.Verify(c => c.CheckResult(response));
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
@@ -117,7 +117,7 @@ namespace MoneySharp.Test.Internal
             var result = _connector.Update(inputId, postObject);
 
             _requestHelper.Verify(c => c.CheckResult(response));
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]

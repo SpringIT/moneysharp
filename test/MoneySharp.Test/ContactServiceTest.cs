@@ -58,7 +58,7 @@ namespace MoneySharp.Test
 
             var item = _contactService.GetById(id);
 
-            item.ShouldBeEquivalentTo(mappedItem);
+            item.Should().BeEquivalentTo(mappedItem);
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace MoneySharp.Test
 
             var result = _contactService.Update(data.Id, data);
 
-            result.ShouldBeEquivalentTo(mappedResult);
+            result.Should().BeEquivalentTo(mappedResult);
             _defaultConnector.Verify(c => c.Update(data.Id, It.Is<ContactWrapper>(v => v.contact == existingMapped)), Times.Once);
         }
 

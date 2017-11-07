@@ -100,7 +100,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 invoice_date = "2016-11-20",
                 id = 1,
                 prices_are_incl_tax = true,
-                total_price_excl_tax =132,
+                total_price_excl_tax = 132,
                 total_price_incl_tax = 190,
                 total_tax = 58
             };
@@ -123,7 +123,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 TotalTax = salesInvoice.total_tax,
             };
 
-            result.ShouldBeEquivalentTo(expectedResult,
+            result.Should().BeEquivalentTo(expectedResult,
                 opt => opt
                     .Excluding(p => p.Details)
                     .Excluding(p => p.CustomFields));
@@ -138,7 +138,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var salesInvoice = new SalesInvoiceGet() { state = input };
             var result = _mapper.MapToContract(salesInvoice);
 
-            result.State.ShouldBeEquivalentTo(output);
+            result.State.Should().BeEquivalentTo(output);
         }
 
         [Test]
@@ -147,7 +147,7 @@ namespace MoneySharp.Test.Internal.Mapping
             var salesInvoice = new SalesInvoiceGet() { state = "test" };
             Action a = () => _mapper.MapToContract(salesInvoice);
 
-            a.ShouldThrow<Exception>();
+            a.Should().Throw<Exception>();
         }
 
         [Test]
@@ -242,7 +242,7 @@ namespace MoneySharp.Test.Internal.Mapping
 
             };
 
-            result.ShouldBeEquivalentTo(expectedResult,
+            result.Should().BeEquivalentTo(expectedResult,
                 opt => opt
                     .Excluding(p => p.details_attributes)
                     .Excluding(p => p.custom_fields_attributes));
@@ -255,20 +255,20 @@ namespace MoneySharp.Test.Internal.Mapping
         public void MapToApi_MapStateEnum_Correctly(Contract.Model.SalesInvoiceStatus input, string output)
         {
             var current = new SalesInvoiceGet();
-            var salesInvoice = new Contract.Model.SalesInvoice() {State = input};
+            var salesInvoice = new Contract.Model.SalesInvoice() { State = input };
             var result = _mapper.MapToApi(salesInvoice, current);
 
-            result.state.ShouldBeEquivalentTo(output);
+            result.state.Should().BeEquivalentTo(output);
         }
 
         [Test]
         public void MapToApi_StateEnumNotExist_ThrowsException()
         {
             var current = new SalesInvoiceGet();
-            var salesInvoice = new Contract.Model.SalesInvoice() {State = (Contract.Model.SalesInvoiceStatus) 1234};
+            var salesInvoice = new Contract.Model.SalesInvoice() { State = (Contract.Model.SalesInvoiceStatus)1234 };
             Action a = () => _mapper.MapToApi(salesInvoice, current);
 
-            a.ShouldThrow<Exception>();
+            a.Should().Throw<Exception>();
         }
     }
 }

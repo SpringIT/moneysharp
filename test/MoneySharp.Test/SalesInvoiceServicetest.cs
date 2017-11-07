@@ -63,7 +63,7 @@ namespace MoneySharp.Test
 
             var item = _invoiceService.GetById(id);
 
-            item.ShouldBeEquivalentTo(mappedItem);
+            item.Should().BeEquivalentTo(mappedItem);
         }
 
         [Test]
@@ -99,7 +99,7 @@ namespace MoneySharp.Test
 
             var result = _invoiceService.Update(data.Id, data);
 
-            result.ShouldBeEquivalentTo(mappedResult);
+            result.Should().BeEquivalentTo(mappedResult);
             _defaultConnector.Verify(c => c.Update(data.Id, It.Is<SalesInvoiceWrapper>(v => v.sales_invoice == existingMapped)), Times.Once);
         }
 

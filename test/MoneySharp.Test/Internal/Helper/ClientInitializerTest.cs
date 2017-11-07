@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using MoneySharp.Contract.Model;
 using MoneySharp.Contract.Settings;
 using MoneySharp.Internal.Helper;
@@ -41,7 +42,7 @@ namespace MoneySharp.Test.Internal.Helper
 
             var client = _configurator.Get();
             
-            client.BaseUrl.ShouldBeEquivalentTo("http://test.nl/api/v2/AdminstrationId/");
+            client.BaseUrl.Should().BeEquivalentTo(new Uri("http://test.nl/api/v2/AdminstrationId/"));
         }
 
         [Test]

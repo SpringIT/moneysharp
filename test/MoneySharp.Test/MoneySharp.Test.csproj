@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>MoneySharp.Test</Description>
+    <Copyright>Spring IT Solutions B.V.</Copyright>
+    <AssemblyTitle>MoneySharp.Test Project</AssemblyTitle>
+    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <AssemblyName>MoneySharp.Test</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>MoneySharp.Test</PackageId>
+    <ApplicationIcon />
+	
+	<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.0.0-beta0003" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0-preview-20171031-01" />
+    <PackageReference Include="Moq" Version="4.7.145" />
+    <PackageReference Include="NUnit" Version="3.8.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MoneySharp\MoneySharp.csproj" />
+    <ProjectReference Include="..\..\src\MoneySharp.Contract\MoneySharp.Contract.csproj" />
+    <ProjectReference Include="..\..\src\MoneySharp.SimpleInjector\MoneySharp.SimpleInjector.csproj" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+	
+    <PackageReference Include="Moq.AutoMock" Version="0.4.0" />
+  </ItemGroup>
+
+ 
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Moq.AutoMocker.NETStandard">
+      <Version>0.5.0.6</Version>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
