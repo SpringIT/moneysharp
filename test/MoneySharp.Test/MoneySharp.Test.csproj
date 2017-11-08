@@ -4,7 +4,7 @@
     <Description>MoneySharp.Test</Description>
     <Copyright>Spring IT Solutions B.V.</Copyright>
     <AssemblyTitle>MoneySharp.Test Project</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
     <AssemblyName>MoneySharp.Test</AssemblyName>
     <OutputType>Library</OutputType>
     <PackageId>MoneySharp.Test</PackageId>
@@ -29,7 +29,7 @@
     <ProjectReference Include="..\..\src\MoneySharp.SimpleInjector\MoneySharp.SimpleInjector.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="Moq.AutoMocker.NETStandard">
       <Version>0.5.0.6</Version>
     </PackageReference>
