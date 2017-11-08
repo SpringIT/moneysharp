@@ -48,7 +48,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 TaxRateId = salesInvoiceDetail.tax_rate_id
             };
 
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
@@ -79,7 +79,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 tax_rate_id = salesInvoiceDetail.TaxRateId
             };
 
-            result.ShouldBeEquivalentTo(expectedResult);
+            result.Should().BeEquivalentTo(expectedResult);
         }
     }
 }

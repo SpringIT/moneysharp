@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using RestSharp;
+using SimpleJson;
 
 namespace MoneySharp.Internal.Model
 {

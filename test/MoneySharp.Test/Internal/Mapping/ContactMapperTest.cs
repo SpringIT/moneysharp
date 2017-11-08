@@ -102,7 +102,7 @@ namespace MoneySharp.Test.Internal.Mapping
                     SignedMandate = contact.sepa_mandate_date
                 }
             };
-            mapped.ShouldBeEquivalentTo(expectedResult);
+            mapped.Should().BeEquivalentTo(expectedResult);
         }
 
         [Test]
@@ -187,7 +187,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 sepa_mandate_date = contact.Mandate.SignedMandate
             };
 
-            mapped.ShouldBeEquivalentTo(expected);
+            mapped.Should().BeEquivalentTo(expected);
         }
     }
 }

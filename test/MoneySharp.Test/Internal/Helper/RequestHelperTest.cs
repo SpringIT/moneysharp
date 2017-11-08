@@ -34,7 +34,7 @@ namespace MoneySharp.Test.Internal.Helper
         public void BuildRequest_Uri_Correctly(Method method, string expectedResult)
         {
             var result = _requestHelper.BuildRequest("test", method);
-            result.Resource.ShouldBeEquivalentTo(expectedResult);
+            result.Resource.Should().BeEquivalentTo(expectedResult);
         }
 
         [TestCase(Method.GET)]
@@ -45,7 +45,7 @@ namespace MoneySharp.Test.Internal.Helper
         public void BuildRequest_Method_Correctly(Method method)
         {
             var result = _requestHelper.BuildRequest("test", method);
-            result.Method.ShouldBeEquivalentTo(method);
+            result.Method.Should().BeEquivalentTo(method);
         }
 
         [TestCase(Method.POST, "postdata")]
@@ -54,7 +54,7 @@ namespace MoneySharp.Test.Internal.Helper
         public void BuildRequest_MethodWithData_SetJsonData(Method method, string data)
         {
             var result = _requestHelper.BuildRequest("test", method, data);
-            result.Parameters.First().Value.ShouldBeEquivalentTo("\"" + data + "\"");
+            result.Parameters.First().Value.Should().BeEquivalentTo("\"" + data + "\"");
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace MoneySharp.Test.Internal.Helper
             var response = new RestResponse { StatusCode = HttpStatusCode.Forbidden };
 
             Action action = () => _requestHelper.CheckResult(response);
-            action.ShouldThrow<RateLimitExceededException>();
+            action.Should().Throw<RateLimitExceededException>();
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace MoneySharp.Test.Internal.Helper
             var response = new RestResponse { StatusCode = HttpStatusCode.Unauthorized };
 
             Action action = () => _requestHelper.CheckResult(response);
-            action.ShouldThrow<UnauthorizedMoneybirdException>();
+            action.Should().Throw<UnauthorizedMoneybirdException>();
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace MoneySharp.Test.Internal.Helper
             var response = new RestResponse { StatusCode = HttpStatusCode.NotFound };
 
             Action action = () => _requestHelper.CheckResult(response);
-            action.ShouldThrow<KeyNotFoundException>();
+            action.Should().Throw<KeyNotFoundException>();
         }
     }
 }

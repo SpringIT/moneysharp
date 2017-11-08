@@ -20,12 +20,8 @@
   </metadata>
  
   <files>
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.dll" target="lib\netstandard1.1\"/>
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard1.1\MoneySharp.SimpleInjector.pdb" target="lib\netstandard1.1\" />
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.dll" target="lib\net45\"/>
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net45\MoneySharp.SimpleInjector.pdb" target="lib\net45\" />
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net40\MoneySharp.SimpleInjector.dll" target="lib\net40\"/>
-	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\net40\MoneySharp.SimpleInjector.pdb" target="lib\net40\" />
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard2.0\MoneySharp.SimpleInjector.dll" target="lib\netstandard2.0\"/>
+	  <file src="MoneySharp.SimpleInjector\bin\$configuration$\netstandard2.0\MoneySharp.SimpleInjector.pdb" target="lib\netstandard2.0\" />
   </files>
   
 </package>

@@ -1,30 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2500FFB0-CD14-436D-BC9D-D7AF31C8BF2F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{322541E9-20BD-4F6D-AEA5-BC2D4E59DA19}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		LICENSE = LICENSE
 		src\MoneySharp.nuspec = src\MoneySharp.nuspec
 		src\MoneySharp.SimpleInjector.nuspec = src\MoneySharp.SimpleInjector.nuspec
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MoneySharp", "src\MoneySharp\MoneySharp.xproj", "{DCAB328A-A825-4808-9BA3-1931BD042251}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{25AC6C8F-1EE7-4719-AB8E-196C8D04F28B}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MoneySharp.Test", "test\MoneySharp.Test\MoneySharp.Test.xproj", "{F0E4436D-C020-4453-85D0-4EB983B9D7FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Container Integration", "Container Integration", "{95B71660-5C4F-49AB-95F0-B4CBBD5EEFB3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MoneySharp.SimpleInjector", "src\MoneySharp.SimpleInjector\MoneySharp.SimpleInjector.xproj", "{822787B7-AF57-422D-B711-941B183B879C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneySharp", "src\MoneySharp\MoneySharp.csproj", "{DCAB328A-A825-4808-9BA3-1931BD042251}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MoneySharp.Contract", "src\MoneySharp.Contract\MoneySharp.Contract.xproj", "{E018139F-0F37-47B0-9620-09F19A9C34FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneySharp.Test", "test\MoneySharp.Test\MoneySharp.Test.csproj", "{F0E4436D-C020-4453-85D0-4EB983B9D7FA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneySharp.SimpleInjector", "src\MoneySharp.SimpleInjector\MoneySharp.SimpleInjector.csproj", "{822787B7-AF57-422D-B711-941B183B879C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoneySharp.Contract", "src\MoneySharp.Contract\MoneySharp.Contract.csproj", "{E018139F-0F37-47B0-9620-09F19A9C34FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +52,13 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{95B71660-5C4F-49AB-95F0-B4CBBD5EEFB3} = {2500FFB0-CD14-436D-BC9D-D7AF31C8BF2F}
 		{DCAB328A-A825-4808-9BA3-1931BD042251} = {2500FFB0-CD14-436D-BC9D-D7AF31C8BF2F}
 		{F0E4436D-C020-4453-85D0-4EB983B9D7FA} = {25AC6C8F-1EE7-4719-AB8E-196C8D04F28B}
-		{95B71660-5C4F-49AB-95F0-B4CBBD5EEFB3} = {2500FFB0-CD14-436D-BC9D-D7AF31C8BF2F}
 		{822787B7-AF57-422D-B711-941B183B879C} = {95B71660-5C4F-49AB-95F0-B4CBBD5EEFB3}
 		{E018139F-0F37-47B0-9620-09F19A9C34FF} = {2500FFB0-CD14-436D-BC9D-D7AF31C8BF2F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D52DB67D-D141-42FB-9969-61144C06F4A6}
 	EndGlobalSection
 EndGlobal

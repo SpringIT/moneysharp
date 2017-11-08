@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>A C# API implementation for MoneyBird</Description>
+    <Copyright>Spring IT Solutions B.V.</Copyright>
+    <AssemblyTitle>MoneySharp</AssemblyTitle>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <AssemblyName>MoneySharp</AssemblyName>
+    <PackageId>MoneySharp</PackageId>
+	  <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MoneySharp.Contract\MoneySharp.Contract.csproj" />
+  </ItemGroup>
+</Project>
