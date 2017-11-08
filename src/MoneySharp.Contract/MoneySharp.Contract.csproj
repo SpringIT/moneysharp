@@ -4,17 +4,11 @@
     <Description>A C# API implementation for MoneyBird</Description>
     <Copyright>Spring IT Solutions B.V.</Copyright>
     <AssemblyTitle>MoneySharp.Contracts</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>MoneySharp.Contract</AssemblyName>
     <PackageId>MoneySharp.Contract</PackageId>
 	  <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
 </Project>

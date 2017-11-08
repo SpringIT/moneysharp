@@ -4,7 +4,7 @@
     <Description>SimpleInjector integration A C# implentation of the Moneybird API V2.</Description>
     <Copyright>Spring IT Solutions B.V.</Copyright>
     <AssemblyTitle>MoneySharp.SimpleInjector</AssemblyTitle>
-    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>MoneySharp.SimpleInjector</AssemblyName>
     <PackageId>MoneySharp.SimpleInjector</PackageId>
 	  <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -20,10 +20,4 @@
   <ItemGroup>
     <PackageReference Include="SimpleInjector" Version="3.2.2" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
 </Project>
