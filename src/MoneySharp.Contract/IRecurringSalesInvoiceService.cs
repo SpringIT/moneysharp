@@ -38,5 +38,12 @@ namespace MoneySharp.Contract
         /// </summary>
         /// <param name="id">Id of sales invoice</param>
         void Delete(long id);
+
+        /// <summary>
+        /// Gets all recurring sales invoices from moneybird
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        IList<RecurringSalesInvoice> GetByContactId(long id);
     }
 }
