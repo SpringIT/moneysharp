@@ -10,11 +10,11 @@ namespace MoneySharp
 {
     public class RecurringSalesInvoiceService : IRecurringSalesInvoiceService
     {
-        private readonly IDefaultConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper> _recurringSalesInvoiceConnector;
+        private readonly IRecurringSalesInvoiceConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper> _recurringSalesInvoiceConnector;
         private readonly IMapper<Contract.Model.RecurringSalesInvoice, RecurringSalesInvoiceGet, RecurringSalesInvoicePost> _recurringSalesInvoiceMapper;
 
         public RecurringSalesInvoiceService(
-            IDefaultConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper> recurringSalesInvoiceConnector,
+            IRecurringSalesInvoiceConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper> recurringSalesInvoiceConnector,
             IMapper<Contract.Model.RecurringSalesInvoice, RecurringSalesInvoiceGet, RecurringSalesInvoicePost>
                 recurringSalesInvoiceMapper)
         {
@@ -32,6 +32,12 @@ namespace MoneySharp
         {
             var salesInvoice = _recurringSalesInvoiceConnector.GetById(id);
             return _recurringSalesInvoiceMapper.MapToContract(salesInvoice);
+        }
+
+        public IList<Contract.Model.RecurringSalesInvoice> GetByContactId(long id)
+        {
+            var salesInvoices = _recurringSalesInvoiceConnector.GetByContactId(id);
+            return salesInvoices.Select(_recurringSalesInvoiceMapper.MapToContract).ToList();
         }
 
         public Contract.Model.RecurringSalesInvoice Create(Contract.Model.RecurringSalesInvoice salesInvoice)

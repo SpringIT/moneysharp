@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MoneySharp.Internal.Model;
 
 namespace MoneySharp.Internal
 {

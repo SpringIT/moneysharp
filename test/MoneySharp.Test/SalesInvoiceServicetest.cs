@@ -20,7 +20,7 @@ namespace MoneySharp.Test
 
         private AutoMocker _mocker;
 
-        private Mock<IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper>> _defaultConnector;
+        private Mock<ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>> _defaultConnector;
         private Mock<IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost>> _mapper;
 
 
@@ -29,7 +29,7 @@ namespace MoneySharp.Test
         {
             _mocker = new AutoMocker();
 
-            _defaultConnector = _mocker.GetMock<IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper>>();
+            _defaultConnector = _mocker.GetMock<ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>>();
             _mapper =
                 _mocker.GetMock<IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost>>();
 

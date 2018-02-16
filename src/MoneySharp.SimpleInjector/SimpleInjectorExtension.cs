@@ -17,10 +17,10 @@ namespace MoneySharp.SimpleInjector
 
             container.Register<IDefaultConnector<Contact, ContactWrapper>>(
                 () => new DefaultConnector<Contact, ContactWrapper>("contacts", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
-            container.Register<IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper>>(
-              () => new DefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper>("sales_invoices", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
-            container.Register<IDefaultConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>>(
-              () => new DefaultConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>("recurring_sales_invoices", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
+            container.Register<ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>>(
+              () => new SalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>("sales_invoices", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>())); 
+            container.Register<IRecurringSalesInvoiceConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>>(
+              () => new RecurringSalesInvoiceConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>("recurring_sales_invoices", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
 
             container.Register<IMapper<Contract.Model.Contact, Contact, Contact>, ContactMapper>();
             container.Register<IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost>, SalesInvoiceMapper>();

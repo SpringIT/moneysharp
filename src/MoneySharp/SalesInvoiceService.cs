@@ -10,10 +10,10 @@ namespace MoneySharp
 {
     public class SalesInvoiceService : ISalesInvoiceService
     {
-        private readonly IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper> _salesInvoiceConnector;
+        private readonly ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper> _salesInvoiceConnector;
         private readonly IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost> _salesInvoiceMapper;
 
-        public SalesInvoiceService(IDefaultConnector<SalesInvoiceGet, SalesInvoiceWrapper> salesInvoiceConnector, IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost> salesInvoiceMapper)
+        public SalesInvoiceService(ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper> salesInvoiceConnector, IMapper<Contract.Model.SalesInvoice, SalesInvoiceGet, SalesInvoicePost> salesInvoiceMapper)
         {
             _salesInvoiceConnector = salesInvoiceConnector;
             _salesInvoiceMapper = salesInvoiceMapper;
@@ -51,6 +51,21 @@ namespace MoneySharp
         public void Delete(long id)
         {
             _salesInvoiceConnector.Delete(id);
+        }
+
+        public void Send(long id, Contract.Model.SendInvoice invoice)
+        {
+            var sendInvoice = new SendInvoice
+            {
+                DeliveryMethod = invoice.DeliveryMethod,
+                DeliveryUbl = invoice.DeliveryUbl,
+                EmailAddress = invoice.EmailAddress,
+                EmailMessage = invoice.EmailMessage,
+                InvoiceDate = invoice.InvoiceDate,
+                Mergeable = invoice.Mergeable,
+                SendingScheduled = invoice.SendingScheduled
+            };
+            _salesInvoiceConnector.Send(id, sendInvoice);
         }
     }
 }

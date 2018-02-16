@@ -10,5 +10,6 @@
         /// Sales invoices of moneybird
         /// </summary>
         ISalesInvoiceService SalesInvoices { get; }
+        IRecurringSalesInvoiceService RecurringSalesInvoices { get; }
     }
 }

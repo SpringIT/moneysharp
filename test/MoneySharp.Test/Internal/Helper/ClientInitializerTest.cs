@@ -25,8 +25,6 @@ namespace MoneySharp.Test.Internal.Helper
 
             _settings = _mocker.GetMock<ISettings>();
 
-            var settingsProvider = _mocker.GetMock<ISettingsProvider>();
-            settingsProvider.Setup(c => c.GetSettings()).Returns(_settings.Object);
 
             _configurator = _mocker.CreateInstance<ClientInitializer>();
         }
