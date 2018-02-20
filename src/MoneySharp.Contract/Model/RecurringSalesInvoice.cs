@@ -5,7 +5,7 @@ namespace MoneySharp.Contract.Model
 {
     public class RecurringSalesInvoice
     {
-        public long Id { get; set; }
+        public long? Id { get; set; }
         public long ContactId { get; set; }
         public long DocumentStyleId { get; set; }
         public long WorkflowId { get; set; }

@@ -83,21 +83,22 @@ namespace MoneySharp.Test
         [Test]
         public void Update_GetAndUpdate_CallsConnectorWithUpdate()
         {
-            var existing = new RecurringSalesInvoiceGet() { id = 1234, };
+            var salesInvoiceId = 1234;
+            var existing = new RecurringSalesInvoiceGet() { id = salesInvoiceId, };
             var data = new Contract.Model.RecurringSalesInvoice() { Id = existing.id };
             var existingMapped = new RecurringSalesInvoicePost();
             var saveResult = new RecurringSalesInvoiceGet();
             var mappedResult = new Contract.Model.RecurringSalesInvoice() { ContactId = 1234 };
 
-            _defaultConnector.Setup(c => c.GetById(existing.id)).Returns(existing);
+            _defaultConnector.Setup(c => c.GetById(salesInvoiceId)).Returns(existing);
             _mapper.Setup(c => c.MapToApi(data, existing)).Returns(existingMapped);
-            _defaultConnector.Setup(c => c.Update(data.Id, It.Is<RecurringSalesInvoiceWrapper>(v => v.recurring_sales_invoice == existingMapped))).Returns(saveResult);
+            _defaultConnector.Setup(c => c.Update(salesInvoiceId, It.Is<RecurringSalesInvoiceWrapper>(v => v.recurring_sales_invoice == existingMapped))).Returns(saveResult);
             _mapper.Setup(c => c.MapToContract(saveResult)).Returns(mappedResult);
 
-            var result = _invoiceService.Update(data.Id, data);
+            var result = _invoiceService.Update(salesInvoiceId, data);
 
             result.Should().BeEquivalentTo(mappedResult);
-            _defaultConnector.Verify(c => c.Update(data.Id, It.Is<RecurringSalesInvoiceWrapper>(v => v.recurring_sales_invoice == existingMapped)), Times.Once);
+            _defaultConnector.Verify(c => c.Update(salesInvoiceId, It.Is<RecurringSalesInvoiceWrapper>(v => v.recurring_sales_invoice == existingMapped)), Times.Once);
         }
 
         [Test]

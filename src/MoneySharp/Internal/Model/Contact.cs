@@ -4,7 +4,7 @@ namespace MoneySharp.Internal.Model
 {
     public class Contact
     {
-        public long id { get; set; }
+        public long? id { get; set; }
         public string attention { get; set; }
         public string chamber_of_commerce { get; set; }
         public string address1 { get; set; }

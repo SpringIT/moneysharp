@@ -15,8 +15,8 @@ namespace MoneySharp.SimpleInjector
         {
             container.Register<ISettings>(() => configurator.Settings);
 
-            container.Register<IDefaultConnector<Contact, ContactWrapper>>(
-                () => new DefaultConnector<Contact, ContactWrapper>("contacts", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
+            container.Register<IContactConnector<Contact, ContactWrapper>>(
+                () => new ContactConnector<Contact, ContactWrapper>("contacts", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>()));
             container.Register<ISalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>>(
               () => new SalesInvoiceConnector<SalesInvoiceGet, SalesInvoiceWrapper>("sales_invoices", container.GetInstance<IClientInitializer>(), container.GetInstance<IRequestHelper>())); 
             container.Register<IRecurringSalesInvoiceConnector<RecurringSalesInvoiceGet, RecurringSalesInvoiceWrapper>>(

@@ -2,7 +2,7 @@
 {
     public class Contact
     {
-        public long Id { get; set; }
+        public long? Id { get; set; }
         public string Company { get; set; }
         public string ChamberOfCommerce { get; set; }
         public string TaxNumber { get; set; }

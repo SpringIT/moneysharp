@@ -17,7 +17,7 @@ namespace MoneySharp.Test
 
         private ContactService _contactService;
 
-        private Mock<IDefaultConnector<Contact, ContactWrapper>> _defaultConnector;
+        private Mock<IContactConnector<Contact, ContactWrapper>> _defaultConnector;
         private Mock<IMapper<Contract.Model.Contact, Contact, Contact>> _mapper;
 
         [SetUp]
@@ -25,7 +25,7 @@ namespace MoneySharp.Test
         {
             _mocker = new AutoMocker();
 
-            _defaultConnector = _mocker.GetMock<IDefaultConnector<Contact, ContactWrapper>>();
+            _defaultConnector = _mocker.GetMock<IContactConnector<Contact, ContactWrapper>>();
             _mapper = _mocker.GetMock<IMapper<Contract.Model.Contact, Contact, Contact>>();
 
             _contactService = _mocker.CreateInstance<ContactService>();
@@ -86,15 +86,15 @@ namespace MoneySharp.Test
             var saveResult = new Contact();
             var mappedResult = new Contract.Model.Contact() { Company = "I'm mapped" };
 
-            _defaultConnector.Setup(c => c.GetById(existing.id)).Returns(existing);
+            _defaultConnector.Setup(c => c.GetById(existing.id.Value)).Returns(existing);
             _mapper.Setup(c => c.MapToApi(data, existing)).Returns(existingMapped);
-            _defaultConnector.Setup(c => c.Update(data.Id, It.Is<ContactWrapper>(v => v.contact == existingMapped))).Returns(saveResult);
+            _defaultConnector.Setup(c => c.Update(data.Id.Value, It.Is<ContactWrapper>(v => v.contact == existingMapped))).Returns(saveResult);
             _mapper.Setup(c => c.MapToContract(saveResult)).Returns(mappedResult);
 
-            var result = _contactService.Update(data.Id, data);
+            var result = _contactService.Update(data.Id.Value, data);
 
             result.Should().BeEquivalentTo(mappedResult);
-            _defaultConnector.Verify(c => c.Update(data.Id, It.Is<ContactWrapper>(v => v.contact == existingMapped)), Times.Once);
+            _defaultConnector.Verify(c => c.Update(data.Id.Value, It.Is<ContactWrapper>(v => v.contact == existingMapped)), Times.Once);
         }
 
         [Test]

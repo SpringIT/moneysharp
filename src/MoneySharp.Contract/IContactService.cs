@@ -13,6 +13,13 @@ namespace MoneySharp.Contract
         IList<Contact> Get();
 
         /// <summary>
+        /// Search contacts in moneybird
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        IList<Contact> GetBySearch(string search);
+
+        /// <summary>
         /// Gets single contact
         /// </summary>
         /// <param name="id">Id of contact</param>

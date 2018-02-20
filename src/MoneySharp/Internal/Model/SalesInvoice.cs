@@ -2,7 +2,7 @@
 {
     public class SalesInvoice
     {
-        public long id { get; set; }
+        public long? id { get; set; }
         public long contact_id { get; set; }
         public long document_style_id { get; set; }
         public long workflow_id { get; set; }
