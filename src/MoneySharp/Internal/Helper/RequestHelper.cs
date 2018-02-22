@@ -26,6 +26,7 @@ namespace MoneySharp.Internal.Helper
             switch (response.StatusCode)
             {
                 case HttpStatusCode.OK:
+                case HttpStatusCode.NoContent:
                 case HttpStatusCode.Created:
                     return;
                 case HttpStatusCode.Unauthorized:

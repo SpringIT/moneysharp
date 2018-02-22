@@ -83,5 +83,14 @@ namespace MoneySharp.Test.Internal.Helper
             Action action = () => _requestHelper.CheckResult(response);
             action.Should().Throw<KeyNotFoundException>();
         }
+
+        [Test]
+        public void CheckResult_NoConent_NotThrow_Exception()
+        {
+            var response = new RestResponse { StatusCode = HttpStatusCode.NoContent };
+
+            Action action = () => _requestHelper.CheckResult(response);
+            action.Should().NotThrow<Exception>();
+        }
     }
 }
