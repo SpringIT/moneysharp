@@ -15,7 +15,8 @@ namespace MoneySharp.Internal.Model
         public string company_name { get; set; }
         public DateTime created_at { get; set; }
         public string customer_id { get; set; }
-        public string email { get; set; }
+        public string send_invoices_to_email { get; set; }
+        public string send_estimates_to_email { get; set; }
         public string phone { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }

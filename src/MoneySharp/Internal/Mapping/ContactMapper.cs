@@ -13,7 +13,8 @@ namespace MoneySharp.Internal.Mapping
                 Company = input.company_name,
                 ChamberOfCommerce = input.chamber_of_commerce,
                 TaxNumber = input.tax_number,
-                Email = input.email,
+                SendInvoicesToEmail = input.send_invoices_to_email,
+                SendEstimatesToEmail = input.send_estimates_to_email,
                 Id = input.id
             };
 
@@ -54,7 +55,8 @@ namespace MoneySharp.Internal.Mapping
             current.company_name = data.Company;
             current.chamber_of_commerce = data.ChamberOfCommerce;
             current.tax_number = data.TaxNumber;
-            current.email = data.Email;
+            current.send_invoices_to_email = data.SendInvoicesToEmail;
+            current.send_estimates_to_email = data.SendEstimatesToEmail;
 
             if (data.Address != null)
             {

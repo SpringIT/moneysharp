@@ -27,7 +27,7 @@ namespace MoneySharp.Test.Internal.Mapping
         {
             var contact = new Contact
             {
-                email = "test@test.nl",
+                send_invoices_to_email = "test@test.nl",
                 customer_id = "abc",
                 lastname = "lastname"
             };
@@ -89,7 +89,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 Company = contact.company_name,
                 ChamberOfCommerce = contact.chamber_of_commerce,
                 TaxNumber = contact.tax_number,
-                Email = contact.email,
+                SendInvoicesToEmail = contact.send_invoices_to_email,
                 Firstname = contact.firstname,
                 Lastname = contact.lastname,
                 Mandate =  new Mandate
@@ -151,7 +151,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 },
                 ChamberOfCommerce = "COC",
                 TaxNumber = "TAX",
-                Email = "email",
+                SendInvoicesToEmail = "email",
                 Firstname = "firstname",
                 Lastname = "lastname",
                 Address = new Address()
@@ -171,7 +171,7 @@ namespace MoneySharp.Test.Internal.Mapping
                 company_name = contact.Company,
                 chamber_of_commerce = contact.ChamberOfCommerce,
                 tax_number = contact.TaxNumber,
-                email = contact.Email,
+                send_invoices_to_email = contact.SendInvoicesToEmail,
                 lastname = contact.Lastname,
                 firstname = contact.Firstname,
                 zipcode= contact.Address.PostalCode,
