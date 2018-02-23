@@ -48,7 +48,7 @@ namespace MoneySharp.Test.Internal
                 Data = expectedResult
             };
 
-            _requestHelper.Setup(c => c.BuildRequest(_urlAppend, Method.GET, null)).Returns(_restRequest.Object);
+            _requestHelper.Setup(c => c.BuildRequest(_urlAppend, Method.GET, null, null)).Returns(_restRequest.Object);
             _restClient.Setup(c => c.Execute<List<GetObject>>(_restRequest.Object)).Returns(response);
             _initializer.Setup(c => c.Get()).Returns(_restClient.Object);
 
@@ -69,7 +69,7 @@ namespace MoneySharp.Test.Internal
                 Data = expectedResult
             };
 
-            _requestHelper.Setup(c => c.BuildRequest($"{_urlAppend}/{inputId}", Method.GET, null)).Returns(_restRequest.Object);
+            _requestHelper.Setup(c => c.BuildRequest($"{_urlAppend}/{inputId}", Method.GET, null, null)).Returns(_restRequest.Object);
             _restClient.Setup(c => c.ExecuteAsGet<GetObject>(_restRequest.Object, "GET")).Returns(response);
             _initializer.Setup(c => c.Get()).Returns(_restClient.Object);
 
@@ -89,7 +89,7 @@ namespace MoneySharp.Test.Internal
                 Data = expectedResult
             };
 
-            _requestHelper.Setup(c => c.BuildRequest(_urlAppend, Method.POST, postObject)).Returns(_restRequest.Object);
+            _requestHelper.Setup(c => c.BuildRequest(_urlAppend, Method.POST, postObject, null)).Returns(_restRequest.Object);
             _restClient.Setup(c => c.ExecuteAsPost<GetObject>(_restRequest.Object, "POST")).Returns(response);
             _initializer.Setup(c => c.Get()).Returns(_restClient.Object);
 
@@ -110,7 +110,7 @@ namespace MoneySharp.Test.Internal
                 Data = expectedResult
             };
 
-            _requestHelper.Setup(c => c.BuildRequest($"{ _urlAppend}/{inputId}", Method.PATCH, postObject)).Returns(_restRequest.Object);
+            _requestHelper.Setup(c => c.BuildRequest($"{ _urlAppend}/{inputId}", Method.PATCH, postObject, null)).Returns(_restRequest.Object);
             _restClient.Setup(c => c.ExecuteAsPost<GetObject>(_restRequest.Object, "PATCH")).Returns(response);
             _initializer.Setup(c => c.Get()).Returns(_restClient.Object);
 
@@ -126,7 +126,7 @@ namespace MoneySharp.Test.Internal
             long inputId = 1234;
             var response = new RestResponse();
 
-            _requestHelper.Setup(c => c.BuildRequest($"{_urlAppend}/{inputId}", Method.DELETE, null))
+            _requestHelper.Setup(c => c.BuildRequest($"{_urlAppend}/{inputId}", Method.DELETE, null, null))
                 .Returns(_restRequest.Object);
             _restClient.Setup(c => c.Execute(_restRequest.Object)).Returns(response);
             _initializer.Setup(c => c.Get()).Returns(_restClient.Object);
