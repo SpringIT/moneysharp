@@ -16,7 +16,7 @@ namespace MoneySharp.Internal
 
         public IList<Contact> GetBySearch(string search)
         {
-            var request = RequestHelper.BuildRequest($"{UrlAppend}?query={search}", Method.GET);
+            var request = RequestHelper.BuildRequest($"{UrlAppend}", Method.GET, null, $"?query={search}");
             var response = Client.Execute<List<Contact>>(request);
             RequestHelper.CheckResult(response);
             return response.Data;

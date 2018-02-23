@@ -11,10 +11,14 @@ namespace MoneySharp.Internal.Helper
         private const string UpdateExtension = ".xml";
         private const string Extension = ".json";
 
-        public IRestRequest BuildRequest(string uri, Method method, object bodyData = null)
+        public IRestRequest BuildRequest(string resource, Method method, object bodyData = null, string additional = null)
         {
-            var totalUrl = GetUrl(uri, method);
-            var request = new RestRequest(totalUrl) {Method = method};
+            var totalUrl = GetUrl(resource, method);
+            if (!string.IsNullOrEmpty(additional))
+            {
+                totalUrl += additional;
+            }
+            var request = new RestRequest(totalUrl) { Method = method };
 
             if (bodyData != null && (method == Method.POST || method == Method.PUT || method == Method.PATCH)) request.AddJsonBody(bodyData);
 

@@ -16,7 +16,7 @@ namespace MoneySharp.Internal
 
         public IList<RecurringSalesInvoiceGet> GetByContactId(long id)
         {
-            var request = RequestHelper.BuildRequest($"{UrlAppend}?filter=contact_id:{id}", Method.GET);
+            var request = RequestHelper.BuildRequest($"{UrlAppend}", Method.GET, null, $"?filter=contact_id:{id}");
             var response = Client.Execute<List<RecurringSalesInvoiceGet>>(request);
             RequestHelper.CheckResult(response);
             return response.Data;

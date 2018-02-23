@@ -4,7 +4,7 @@ namespace MoneySharp.Internal.Helper
 {
     public interface IRequestHelper
     {
-        IRestRequest BuildRequest(string uri, Method method, object bodyData = null);
+        IRestRequest BuildRequest(string resource, Method method, object bodyData = null, string additional = null);
         void CheckResult(IRestResponse response);
     }
 }
