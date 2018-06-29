@@ -57,13 +57,13 @@ namespace MoneySharp
         {
             var sendInvoice = new SendInvoice
             {
-                DeliveryMethod = invoice.DeliveryMethod,
-                DeliveryUbl = invoice.DeliveryUbl,
-                EmailAddress = invoice.EmailAddress,
-                EmailMessage = invoice.EmailMessage,
-                InvoiceDate = invoice.InvoiceDate,
-                Mergeable = invoice.Mergeable,
-                SendingScheduled = invoice.SendingScheduled
+                delivery_method = invoice.DeliveryMethod,
+                delivery_ubl = invoice.DeliveryUbl,
+                email_address = invoice.EmailAddress,
+                email_message = invoice.EmailMessage,
+                invoice_date = invoice.InvoiceDate,
+                mergeable = invoice.Mergeable,
+                sending_scheduled = invoice.SendingScheduled
             };
             _salesInvoiceConnector.Send(id, sendInvoice);
         }

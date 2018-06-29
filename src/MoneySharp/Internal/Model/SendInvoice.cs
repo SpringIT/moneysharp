@@ -4,12 +4,12 @@ namespace MoneySharp.Internal.Model
 {
     public class SendInvoice
     {
-        public string DeliveryMethod { get; set; }
-        public bool SendingScheduled { get; set; }
-        public bool DeliveryUbl { get; set; }
-        public bool Mergeable { get; set; }
-        public string EmailAddress { get; set; }
-        public string EmailMessage { get; set; }
-        public DateTime InvoiceDate { get; set; }
+        public string delivery_method { get; set; }
+        public bool sending_scheduled { get; set; }
+        public bool delivery_ubl { get; set; }
+        public bool mergeable { get; set; }
+        public string email_address { get; set; }
+        public string email_message { get; set; }
+        public DateTime invoice_date { get; set; }
     }
 }
