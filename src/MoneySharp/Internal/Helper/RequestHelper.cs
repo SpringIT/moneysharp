@@ -55,7 +55,7 @@ namespace MoneySharp.Internal.Helper
                 case Method.PUT:
                     return $"{uri}{UpdateExtension}";
                 case Method.PATCH:
-                    return $"{uri}{UpdateExtension}";
+                    return $"{uri}{Extension}";
                 case Method.DELETE:
                     return $"{uri}{Extension}";
                 default:
