@@ -28,7 +28,7 @@ namespace MoneySharp.Test.Internal.Helper
         [TestCase(Method.GET, "test.json")]
         [TestCase(Method.DELETE, "test.json")]
         [TestCase(Method.POST, "test.json")]
-        [TestCase(Method.PATCH, "test.xml")]
+        [TestCase(Method.PATCH, "test.json")]
         [TestCase(Method.PUT, "test.xml")]
         [TestCase(Method.HEAD, "test.json")]
         public void BuildRequest_Uri_Correctly(Method method, string expectedResult)
