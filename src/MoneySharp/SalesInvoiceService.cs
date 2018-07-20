@@ -67,5 +67,23 @@ namespace MoneySharp
             };
             _salesInvoiceConnector.Send(id, sendInvoice);
         }
+
+        public void CreatePayment(long id, Contract.Model.Payment payment)
+        {
+            var sendInvoice = new Payment
+            {
+                price = payment.Price,
+                payment_date = payment.PaymentDate.ToString("yyyy-MM-dd"),
+                price_base = payment.PriceBase,
+                financial_account_id = payment.FinancialAccountId,
+                financial_mutation_id = payment.FinancialMutationId
+            };
+            _salesInvoiceConnector.CreatePayment(id, sendInvoice);
+        } 
+        
+        public void DeletePayment(long id, long paymentId)
+        {
+            _salesInvoiceConnector.DeletePayment(id, paymentId);
+        }
     }
 }

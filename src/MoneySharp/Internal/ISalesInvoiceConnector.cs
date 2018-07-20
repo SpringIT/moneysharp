@@ -6,5 +6,7 @@ namespace MoneySharp.Internal
         where TGetObject : class, new() where TPostObject : class, new()
     {
         void Send(long id, SendInvoice sendInvoice);
+        void DeletePayment(long id, long paymentId);
+        void CreatePayment(long id, Payment payment);
     }
 }

@@ -19,5 +19,19 @@ namespace MoneySharp.Internal
             var response = Client.Execute(request);
             RequestHelper.CheckResult(response);
         }
+
+        public void CreatePayment(long id, Payment payment)
+        {
+            var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments", Method.POST, payment);
+            var response = Client.Execute(request);
+            RequestHelper.CheckResult(response);
+        }  
+        
+        public void DeletePayment(long id, long paymentId)
+        {
+            var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments/{paymentId}", Method.DELETE);
+            var response = Client.Execute(request);
+            RequestHelper.CheckResult(response);
+        }
     }
 }
