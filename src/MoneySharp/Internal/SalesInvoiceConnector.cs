@@ -1,5 +1,6 @@
 ﻿using MoneySharp.Internal.Helper;
 using MoneySharp.Internal.Model;
+using MoneySharp.Internal.Model.Wrapper;
 using RestSharp;
 
 namespace MoneySharp.Internal
@@ -22,7 +23,7 @@ namespace MoneySharp.Internal
 
         public void CreatePayment(long id, Payment payment)
         {
-            var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments", Method.POST, payment);
+            var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments", Method.POST, new PaymentWrapper(payment));
             var response = Client.Execute(request);
             RequestHelper.CheckResult(response);
         }  
