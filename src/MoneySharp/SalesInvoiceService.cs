@@ -5,6 +5,7 @@ using MoneySharp.Internal;
 using MoneySharp.Internal.Mapping;
 using MoneySharp.Internal.Model;
 using MoneySharp.Internal.Model.Wrapper;
+using SalesInvoice = MoneySharp.Contract.Model.SalesInvoice;
 
 namespace MoneySharp
 {
@@ -79,16 +80,17 @@ namespace MoneySharp
                 financial_mutation_id = payment.FinancialMutationId
             };
             _salesInvoiceConnector.CreatePayment(id, sendInvoice);
-        } 
-        
+        }
+
         public void DeletePayment(long id, long paymentId)
         {
             _salesInvoiceConnector.DeletePayment(id, paymentId);
-        } 
-        
-        public void CreditInvoice(long id)
+        }
+
+        public SalesInvoice CreditInvoice(long id)
         {
-            _salesInvoiceConnector.CreditInvoice(id);
+            var salesInvoice = _salesInvoiceConnector.CreditInvoice(id);
+            return _salesInvoiceMapper.MapToContract(salesInvoice);
         }
     }
 }

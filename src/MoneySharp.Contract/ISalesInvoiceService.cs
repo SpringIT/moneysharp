@@ -64,6 +64,6 @@ namespace MoneySharp.Contract
         /// Create credit invoice based on invoice
         /// </summary>
         /// <param name="id"></param>
-        void CreditInvoice(long id);
+        SalesInvoice CreditInvoice(long id);
     }
 }

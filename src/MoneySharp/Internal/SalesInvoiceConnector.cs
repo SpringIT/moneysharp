@@ -26,20 +26,22 @@ namespace MoneySharp.Internal
             var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments", Method.POST, new PaymentWrapper(payment));
             var response = Client.Execute(request);
             RequestHelper.CheckResult(response);
-        }  
-        
+        }
+
         public void DeletePayment(long id, long paymentId)
         {
             var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments/{paymentId}", Method.DELETE);
             var response = Client.Execute(request);
             RequestHelper.CheckResult(response);
-        }  
-        
-        public void CreditInvoice(long id)
+        }
+
+        public SalesInvoiceGet CreditInvoice(long id)
         {
             var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/duplicate_creditinvoice", Method.PATCH);
-            var response = Client.Execute(request);
+            var response = Client.Execute<SalesInvoiceGet>(request);
             RequestHelper.CheckResult(response);
+
+            return response.Data;
         }
     }
 }
