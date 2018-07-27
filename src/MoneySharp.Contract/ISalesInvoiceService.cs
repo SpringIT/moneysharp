@@ -59,5 +59,11 @@ namespace MoneySharp.Contract
         /// <param name="id"></param>
         /// <param name="paymentId"></param>
         void DeletePayment(long id, long paymentId);
+
+        /// <summary>
+        /// Create credit invoice based on invoice
+        /// </summary>
+        /// <param name="id"></param>
+        void CreditInvoice(long id);
     }
 }

@@ -8,5 +8,6 @@ namespace MoneySharp.Internal
         void Send(long id, SendInvoice sendInvoice);
         void DeletePayment(long id, long paymentId);
         void CreatePayment(long id, Payment payment);
+        void CreditInvoice(long id);
     }
 }

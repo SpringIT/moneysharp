@@ -33,6 +33,13 @@ namespace MoneySharp.Internal
             var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/payments/{paymentId}", Method.DELETE);
             var response = Client.Execute(request);
             RequestHelper.CheckResult(response);
+        }  
+        
+        public void CreditInvoice(long id)
+        {
+            var request = RequestHelper.BuildRequest($"{UrlAppend}/{id}/duplicate_creditinvoice", Method.PATCH);
+            var response = Client.Execute(request);
+            RequestHelper.CheckResult(response);
         }
     }
 }

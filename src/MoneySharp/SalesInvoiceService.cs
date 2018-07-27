@@ -84,6 +84,11 @@ namespace MoneySharp
         public void DeletePayment(long id, long paymentId)
         {
             _salesInvoiceConnector.DeletePayment(id, paymentId);
+        } 
+        
+        public void CreditInvoice(long id)
+        {
+            _salesInvoiceConnector.CreditInvoice(id);
         }
     }
 }
