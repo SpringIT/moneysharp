@@ -20,5 +20,6 @@ namespace MoneySharp.Contract.Model
         public SalesInvoiceStatus State { get; set; }
         public IList<SalesInvoiceDetail> Details { get; set; }
         public IList<CustomField> CustomFields { get; set; }
+        public string Reference { get; set; }
     }
 }

@@ -48,6 +48,7 @@ namespace MoneySharp.Internal.Mapping
             mapToContract.TotalPriceExcludingTax = input.total_price_excl_tax;
             mapToContract.Id = input.id;
             mapToContract.Url = input.url;
+            mapToContract.Reference = input.reference;
             mapToContract.State = GetContractState(input.state);
 
             return mapToContract;

@@ -14,5 +14,6 @@
         public decimal total_tax { get; set; }
         public string invoice_id { get; set; }
         public string state { get; set; }
+        public string reference{get;set;}
     }
 }
