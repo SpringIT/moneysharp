@@ -63,6 +63,7 @@ namespace MoneySharp.Internal.Mapping
             returnValue.invoice_id = data.InvoiceId;
             returnValue.id = data.Id;
             returnValue.state = GetApiState(data.State);
+            returnValue.reference = data.Reference;
             returnValue.total_price_excl_tax = data.TotalPriceExcludingTax;
             returnValue.total_price_incl_tax = data.TotalPriceIncludingTax;
             returnValue.total_tax = data.TotalTax;
